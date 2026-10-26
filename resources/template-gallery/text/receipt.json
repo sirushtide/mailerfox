@@ -1,0 +1,6 @@
+{
+    "name": "Payment Receipt",
+    "description": "A clean receipt for a successful payment.",
+    "category": "transactional",
+    "html_content": "<h1>Payment received</h1><p>Hi {first_name},</p><p>Thanks — we've received your payment. Here are the details for your records:</p><ul><li><strong>Receipt #:</strong> {receipt_number}</li><li><strong>Amount:</strong> {amount}</li><li><strong>Date:</strong> {payment_date}</li><li><strong>Method:</strong> {payment_method}</li></ul><p>You can download a PDF copy any time from your billing dashboard.</p><p>If you have any questions about this charge, just reply to this email.</p><p>— {company_name} Billing</p>"
+}

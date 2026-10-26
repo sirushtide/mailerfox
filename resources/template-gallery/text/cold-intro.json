@@ -1,0 +1,6 @@
+{
+    "name": "Cold Intro",
+    "description": "Short, personal first-touch outreach email.",
+    "category": "cold",
+    "html_content": "<p>Hi {first_name},</p><p>I came across {company_name} while researching teams in your space, and I wanted to reach out.</p><p>We help companies like yours {value_proposition}. Most teams see results within their first month.</p><p>Would you be open to a quick 15-minute call next week to see if there's a fit? If now's not a good time, no problem — just let me know.</p><p>Thanks,<br>{sender_name}<br>{sender_title}, {company_name}</p>"
+}

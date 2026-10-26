@@ -1,0 +1,6 @@
+{
+    "name": "Anniversary",
+    "description": "Celebrate a customer's anniversary with your brand.",
+    "category": "relationship",
+    "html_content": "<h1>One year together</h1><p>Hi {first_name},</p><p>It's hard to believe, but it's been a full year since you joined {company_name}. Thanks for sticking with us.</p><p>To mark the occasion, we've added a small thank-you to your account — log in to see it.</p><p>Here's to many more.</p><p>— The {company_name} Team</p>"
+}

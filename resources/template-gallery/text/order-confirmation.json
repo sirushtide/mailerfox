@@ -1,0 +1,6 @@
+{
+    "name": "Order Confirmation",
+    "description": "Confirm a customer's order with summary details.",
+    "category": "transactional",
+    "html_content": "<h1>Your order is confirmed</h1><p>Hi {first_name},</p><p>Thanks for your order — we're getting it ready now.</p><h3>Order summary</h3><ul><li><strong>Order #:</strong> {order_number}</li><li><strong>Total:</strong> {order_total}</li><li><strong>Estimated delivery:</strong> {estimated_delivery}</li></ul><p>You'll get another email as soon as it ships, with tracking details.</p><p>If anything looks wrong, reply to this email and we'll fix it right away.</p><p>— The {company_name} Team</p>"
+}

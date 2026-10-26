@@ -1,0 +1,6 @@
+{
+    "name": "Limited Time Offer",
+    "description": "Promote a time-sensitive sale or discount.",
+    "category": "marketing",
+    "html_content": "<h1>48 hours only — save 25%</h1><p>Hi {first_name},</p><p>For the next 48 hours, every annual plan is <strong>25% off</strong>. Use code <strong>SAVE25</strong> at checkout.</p><h3>Why upgrade now</h3><ul><li>Lock in the discount for the full year</li><li>Unlock advanced reporting and integrations</li><li>Priority support whenever you need it</li></ul><p>This offer ends Friday at midnight. Don't miss it.</p><p>Questions? Just reply — we're happy to help.</p><p>— {sender_name}</p>"
+}

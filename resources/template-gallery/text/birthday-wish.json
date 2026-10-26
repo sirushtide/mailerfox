@@ -1,0 +1,6 @@
+{
+    "name": "Birthday Wish",
+    "description": "Send birthday wishes with a small gift or discount.",
+    "category": "relationship",
+    "html_content": "<h1>Happy Birthday, {first_name}!</h1><p>From everyone here at {company_name}, we hope your day is full of good things.</p><p>As a small gift, here's <strong>20% off</strong> anything in your account this month — just use code <strong>BDAY20</strong> at checkout.</p><p>Thanks for being part of our community. Enjoy your day.</p><p>— The {company_name} Team</p>"
+}

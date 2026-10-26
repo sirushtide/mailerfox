@@ -1,0 +1,389 @@
+{
+  "slug": "gorealo-loan-options",
+  "name": "GoRealo — Loan programs",
+  "description": "Subject: Which mortgage program should you compare first? | Preheader: A few details can narrow the options worth exploring.",
+  "type": "email",
+  "builder": "mailpurse",
+  "html_content": "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Which mortgage program should you compare first?</title></head><body style=\"margin:0;background:#f1f4f8;font-family:Arial,Helvetica,sans-serif\"><div style=\"display:none;max-height:0;overflow:hidden;mso-hide:all\">A few details can narrow the options worth exploring.</div><table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background:#f1f4f8\"><tr><td align=\"center\" style=\"padding:24px 12px\"><table role=\"presentation\" width=\"600\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"width:100%;max-width:600px;background:#fff\"><tr><td style=\"padding:24px 30px;border-top:5px solid #1459d9\"><a href=\"https://www.gorealo.com/\"><img src=\"https://www.gorealo.com/media/site-assets/gorealo-logo.svg\" width=\"154\" alt=\"GoRealo\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a><p style=\"margin:9px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p></td></tr><tr><td style=\"padding:30px;background:#f0f5ff\"><p style=\"margin:0 0 12px;color:#1459d9;font-size:11px;font-weight:bold;letter-spacing:2px\">OPTIONS, MADE CLEAR</p><h1 style=\"font-size:30px;line-height:1.2;margin:0 0 16px;color:#162849\">Let’s find a loan path that fits your plans.</h1><p style=\"font-size:16px;line-height:1.7;color:#374151;margin:0 0 14px\">Hi {{first_name}}, conventional, FHA, VA, USDA, and jumbo programs each have different requirements and costs. The best place to start is with your goals and eligibility.</p><p style=\"font-size:16px;line-height:1.7;color:#162849;font-weight:bold;margin:0\">Are you buying, refinancing, or still exploring?</p><p style=\"margin:20px 0 0\"><img src=\"https://raw.githubusercontent.com/sirushtide/mailerfox/main/resources/email-templates/gorealo/assets/MoveDealsForward.png\" alt=\"GoRealo: Loan programs\" width=\"540\" style=\"display:block;width:100%;max-width:540px;height:auto;border:0;border-radius:8px\"></p></td></tr><tr><td style=\"padding:22px 30px\"><table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\"><tr><td style=\"padding:14px 0;border-bottom:1px solid #e5eaf1\"><h2 style=\"font-size:17px;line-height:1.35;margin:0 0 7px;color:#162849\">Start with the basics</h2><p style=\"font-size:15px;line-height:1.75;color:#4b5563;margin:0\">Purchase price, down payment, location, property type, and credit profile help shape which options may fit.</p></td></tr><tr><td style=\"padding:14px 0;border-bottom:1px solid #e5eaf1\"><h2 style=\"font-size:17px;line-height:1.35;margin:0 0 7px;color:#162849\">Compare costs side by side</h2><p style=\"font-size:15px;line-height:1.75;color:#4b5563;margin:0\">Review rates, APR, mortgage insurance, points, and estimated cash to close.</p></td></tr><tr><td style=\"padding:14px 0;border-bottom:1px solid #e5eaf1\"><h2 style=\"font-size:17px;line-height:1.35;margin:0 0 7px;color:#162849\">Ask about eligibility</h2><p style=\"font-size:15px;line-height:1.75;color:#4b5563;margin:0\">Program guidelines differ. A loan professional can help you understand what may apply to your circumstances.</p></td></tr></table><p style=\"font-size:15px;line-height:1.75;color:#374151;margin:22px 0\">Tell us your goal and whether you have a target timeline. We can help you focus on the right questions.</p><p style=\"font-size:15px;line-height:1.75;color:#374151\">Warmly,<br><strong>The GoRealo Team</strong></p><table role=\"presentation\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin:22px 0\"><tr><td bgcolor=\"#1459d9\" style=\"border-radius:4px\"><a href=\"https://www.gorealo.com/mortgage-rates/\" style=\"display:inline-block;padding:14px 24px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold\">Explore loan programs</a></td></tr></table><p style=\"font-size:13px;line-height:1.7;color:#667085\">Prefer to talk? Call <a href=\"tel:+18667139292\" style=\"color:#1459d9\">1-866-713-9292</a> or reply to this email.</p></td></tr><tr><td style=\"padding:20px 30px;background:#f4f6f9\"><p style=\"font-size:11px;line-height:1.7;color:#667085;margin:0\">GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · Florida Mortgage Broker License #MBR1434.<br>5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256.<br>Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply.</p><p style=\"font-size:11px;line-height:1.7;color:#667085\"><a href=\"https://www.gorealo.com/privacy-policy/\" style=\"color:#1459d9\">Privacy</a> · <a href=\"{{unsubscribe_url}}\" style=\"color:#1459d9\">Unsubscribe</a></p></td></tr></table></td></tr></table></body></html>",
+  "plain_text_content": "Which mortgage program should you compare first? A few details can narrow the options worth exploring. MORTGAGE OPTIONS, MADE CLEAR OPTIONS, MADE CLEAR Let’s find a loan path that fits your plans. Hi {{first_name}}, conventional, FHA, VA, USDA, and jumbo programs each have different requirements and costs. The best place to start is with your goals and eligibility. Are you buying, refinancing, or still exploring? Start with the basics Purchase price, down payment, location, property type, and credit profile help shape which options may fit. Compare costs side by side Review rates, APR, mortgage insurance, points, and estimated cash to close. Ask about eligibility Program guidelines differ. A loan professional can help you understand what may apply to your circumstances. Tell us your goal and whether you have a target timeline. We can help you focus on the right questions. Warmly, The GoRealo Team Explore loan programs Prefer to talk? Call 1-866-713-9292 or reply to this email. GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · Florida Mortgage Broker License #MBR1434. 5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256. Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply. Privacy · Unsubscribe",
+  "builder_data": {
+    "builder": "mailpurse",
+    "version": 1,
+    "meta": {
+      "name": "GoRealo — Loan programs"
+    },
+    "style": {},
+    "customCss": "",
+    "sections": [
+      {
+        "id": "s-gorealo-brand",
+        "name": "GoRealo brand",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-gorealo-brand",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "w-8aadfbead6",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"margin:0\"><a href=\"https://www.gorealo.com/\"><img src=\"https://www.gorealo.com/media/site-assets/gorealo-logo.svg\" alt=\"GoRealo\" width=\"154\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a></p><p style=\"margin:10px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-campaign-introduction",
+        "name": "Campaign introduction",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#f0f5ff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-campaign-introduction",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "w-12e456f347",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"margin:0 0 12px;color:#1459d9;font-size:11px;font-weight:bold;letter-spacing:2px\">OPTIONS, MADE CLEAR</p>",
+                  "align": "left"
+                }
+              },
+              {
+                "id": "h-f41fc63fc1",
+                "type": "heading",
+                "name": "Heading",
+                "props": {
+                  "text": "Let’s find a loan path that fits your plans.",
+                  "level": 1,
+                  "align": "left",
+                  "color": "#162849",
+                  "fontSize": 22
+                }
+              },
+              {
+                "id": "w-29cb041c4a",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:16px;line-height:1.7;color:#374151\">Hi {{first_name}}, conventional, FHA, VA, USDA, and jumbo programs each have different requirements and costs. The best place to start is with your goals and eligibility.</p><p style=\"font-size:16px;line-height:1.7;color:#162849;font-weight:bold\">Are you buying, refinancing, or still exploring?</p>",
+                  "align": "left"
+                }
+              },
+              {
+                "id": "i-ce6103c164",
+                "type": "image",
+                "name": "Campaign image",
+                "props": {
+                  "url": "https://raw.githubusercontent.com/sirushtide/mailerfox/main/resources/email-templates/gorealo/assets/MoveDealsForward.png",
+                  "alt": "GoRealo: Loan programs",
+                  "align": "center",
+                  "width": "100%",
+                  "borderRadius": "8px"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-start-with-the-basics",
+        "name": "Start with the basics",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-start-with-the-basics",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "h-fba7a7e5ac",
+                "type": "heading",
+                "name": "Heading",
+                "props": {
+                  "text": "Start with the basics",
+                  "level": 2,
+                  "align": "left",
+                  "color": "#162849",
+                  "fontSize": 18
+                }
+              },
+              {
+                "id": "w-40c87c7547",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:15px;line-height:1.75;color:#4b5563\">Purchase price, down payment, location, property type, and credit profile help shape which options may fit.</p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-compare-costs-side-by-side",
+        "name": "Compare costs side by side",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-compare-costs-side-by-side",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "h-0d03c9b91f",
+                "type": "heading",
+                "name": "Heading",
+                "props": {
+                  "text": "Compare costs side by side",
+                  "level": 2,
+                  "align": "left",
+                  "color": "#162849",
+                  "fontSize": 18
+                }
+              },
+              {
+                "id": "w-4236f62b61",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:15px;line-height:1.75;color:#4b5563\">Review rates, APR, mortgage insurance, points, and estimated cash to close.</p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-ask-about-eligibility",
+        "name": "Ask about eligibility",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-ask-about-eligibility",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "h-7ffeb8c44b",
+                "type": "heading",
+                "name": "Heading",
+                "props": {
+                  "text": "Ask about eligibility",
+                  "level": 2,
+                  "align": "left",
+                  "color": "#162849",
+                  "fontSize": 18
+                }
+              },
+              {
+                "id": "w-4f20e85f25",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:15px;line-height:1.75;color:#4b5563\">Program guidelines differ. A loan professional can help you understand what may apply to your circumstances.</p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-personal-reply",
+        "name": "Personal reply",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-personal-reply",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "w-127ed3567b",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:15px;line-height:1.75;color:#374151\">Tell us your goal and whether you have a target timeline. We can help you focus on the right questions.</p><p style=\"font-size:15px;line-height:1.75;color:#374151\">Warmly,<br><strong>The GoRealo Team</strong></p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-primary-call-to-action",
+        "name": "Primary call to action",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-primary-call-to-action",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "cta-loan-options",
+                "type": "button",
+                "name": "Primary CTA",
+                "props": {
+                  "text": "Explore loan programs",
+                  "url": "https://www.gorealo.com/mortgage-rates/",
+                  "align": "left",
+                  "backgroundColor": "#1459d9",
+                  "textColor": "#ffffff",
+                  "size": "md",
+                  "paddingX": 24,
+                  "paddingY": 14,
+                  "borderRadius": "4px"
+                }
+              },
+              {
+                "id": "w-9357644425",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:13px;color:#667085;line-height:1.6\">Prefer to talk? Call <a href=\"tel:+18667139292\" style=\"color:#1459d9\">1-866-713-9292</a> or reply to this email.</p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-compliance-footer",
+        "name": "Compliance footer",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#f4f6f9",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-compliance-footer",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "w-c74469f8aa",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:11px;line-height:1.7;color:#667085\">GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · Florida Mortgage Broker License #MBR1434.<br>5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256.<br>Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply.</p><p style=\"font-size:11px;line-height:1.7;color:#667085\"><a href=\"https://www.gorealo.com/privacy-policy/\" style=\"color:#1459d9\">Privacy</a> · <a href=\"{{unsubscribe_url}}\" style=\"color:#1459d9\">Unsubscribe</a></p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "thumbnail": null,
+  "is_active": true,
+  "available_to_all_groups": true,
+  "settings": {
+    "source": "gorealo-campaign-pack",
+    "subject": "Which mortgage program should you compare first?",
+    "preheader": "A few details can narrow the options worth exploring.",
+    "category": "Loan programs",
+    "primary_cta": "Explore loan programs",
+    "primary_url": "https://www.gorealo.com/mortgage-rates/",
+    "source_image": "MoveDealsForward.png"
+  }
+}

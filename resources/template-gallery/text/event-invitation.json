@@ -1,0 +1,6 @@
+{
+    "name": "Event Invitation",
+    "description": "Invite contacts to a webinar or live event.",
+    "category": "other",
+    "html_content": "<h1>You're invited</h1><p>Hi {first_name},</p><p>We're hosting a live session on <strong>{event_topic}</strong>, and we'd love to see you there.</p><h3>Event details</h3><ul><li><strong>Date:</strong> {event_date}</li><li><strong>Time:</strong> {event_time}</li><li><strong>Where:</strong> Online — link sent after you register</li></ul><p><a href=\"{registration_link}\">Save your spot</a></p><p>Can't attend live? Register anyway and we'll send you the recording.</p><p>— The {company_name} Team</p>"
+}

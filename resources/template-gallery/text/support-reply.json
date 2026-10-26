@@ -1,0 +1,6 @@
+{
+    "name": "Support Ticket Reply",
+    "description": "Reply to a customer support request.",
+    "category": "support",
+    "html_content": "<p>Hi {first_name},</p><p>Thanks for reaching out — sorry for the trouble. I had a look at your account and here's what I found:</p><blockquote>{issue_summary}</blockquote><p>To resolve this, please try the following:</p><ol><li>Log out and back in to refresh your session</li><li>Clear your browser cache</li><li>Try the action again</li></ol><p>If the issue continues, just reply with a screenshot or short description and I'll dig in further.</p><p>Thanks for your patience,<br>{sender_name}<br>{company_name} Support</p>"
+}

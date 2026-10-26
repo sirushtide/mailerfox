@@ -1,0 +1,6 @@
+{
+    "name": "Survey Request",
+    "description": "Ask customers for short feedback after a recent interaction.",
+    "category": "support",
+    "html_content": "<h1>Got 60 seconds?</h1><p>Hi {first_name},</p><p>We're constantly trying to make {company_name} better, and your feedback would mean a lot.</p><p>Could you take a minute to answer three quick questions?</p><p><a href=\"{survey_link}\">Take the survey</a></p><p>That's it — no follow-up forms, no sales pitch. Just real answers from real customers.</p><p>Thanks for helping us improve.</p><p>— The {company_name} Team</p>"
+}

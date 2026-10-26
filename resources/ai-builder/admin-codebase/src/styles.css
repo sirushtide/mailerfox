@@ -1,0 +1,176 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* --- CORE THEME TOKENS (overwritten by PHP ThemeApplier) --- */
+        --ds-background: #ffffff;
+        --ds-background-hsl: 0 0% 100%;
+        --ds-foreground: #0f172a;
+        --ds-foreground-hsl: 222 47% 11%;
+        --ds-card: #ffffff;
+        --ds-card-hsl: 0 0% 100%;
+        --ds-card-foreground: #0f172a;
+        --ds-card-foreground-hsl: 222 47% 11%;
+        --ds-popover: #ffffff;
+        --ds-popover-hsl: 0 0% 100%;
+        --ds-popover-foreground: #0f172a;
+        --ds-popover-foreground-hsl: 222 47% 11%;
+        --ds-primary: #2563eb;
+        --ds-primary-hsl: 217 91% 60%;
+        --ds-primary-foreground: #ffffff;
+        --ds-primary-foreground-hsl: 0 0% 100%;
+        --ds-secondary: #64748b;
+        --ds-secondary-hsl: 215 16% 47%;
+        --ds-secondary-foreground: #ffffff;
+        --ds-secondary-foreground-hsl: 0 0% 100%;
+        --ds-muted: #f1f5f9;
+        --ds-muted-hsl: 210 40% 96%;
+        --ds-muted-foreground: #64748b;
+        --ds-muted-foreground-hsl: 215 16% 47%;
+        --ds-accent: #f1f5f9;
+        --ds-accent-hsl: 210 40% 96%;
+        --ds-accent-foreground: #0f172a;
+        --ds-accent-foreground-hsl: 222 47% 11%;
+        --ds-destructive: #ef4444;
+        --ds-destructive-hsl: 0 72% 51%;
+        --ds-destructive-foreground: #ffffff;
+        --ds-destructive-foreground-hsl: 0 0% 100%;
+        --ds-border: #e2e8f0;
+        --ds-border-hsl: 214 32% 91%;
+        --ds-input: #e2e8f0;
+        --ds-input-hsl: 214 32% 91%;
+        --ds-ring: #2563eb;
+        --ds-ring-hsl: 217 91% 60%;
+        --ds-radius: 0.625rem;
+        --ds-font-sans: 'Inter', system-ui, sans-serif;
+        --ds-font-heading: 'Inter', system-ui, sans-serif;
+
+        /* --- BRAND TOKENS (overwritten by PHP ThemeApplier) --- */
+        --brand-primary: #2563eb;
+        --brand-secondary: #06b6d4;
+        --brand-bg: #ffffff;
+        --brand-text: #0f172a;
+
+        /* --- SIDEBAR TOKENS (static, HSL triplets so /opacity modifiers work) --- */
+        --adm-sidebar: 240 5.9% 10%;
+        --adm-sidebar-foreground: 240 4.8% 95.9%;
+        --adm-sidebar-primary: 224.3 76.3% 48%;
+        --adm-sidebar-primary-foreground: 0 0% 100%;
+        --adm-sidebar-accent: 240 3.7% 15.9%;
+        --adm-sidebar-accent-foreground: 240 4.8% 95.9%;
+        --adm-sidebar-border: 240 3.7% 15.9%;
+        --adm-sidebar-ring: 217.2 91.2% 59.8%;
+
+        --sidebar-width: 16rem;
+        --sidebar-width-icon: 3rem;
+        --sidebar-width-mobile: 18rem;
+        --radius: var(--ds-radius);
+
+        color-scheme: light;
+    }
+
+    * {
+        border-color: hsl(var(--ds-border-hsl));
+    }
+
+    html,
+    body,
+    #root {
+        min-height: 100%;
+    }
+
+    body {
+        margin: 0;
+        font-family: var(--ds-font-sans);
+        background-color: hsl(var(--ds-background-hsl));
+        color: hsl(var(--ds-foreground-hsl));
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--ds-font-heading);
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+@layer components {
+    /* --- SIDEBAR LAYOUT --- */
+    [data-slot="sidebar"] {
+        width: var(--sidebar-width);
+    }
+
+    [data-slot="sidebar"][data-collapsible="icon"] {
+        width: var(--sidebar-width-icon);
+    }
+
+    [data-slot="sidebar"][data-mobile="true"] {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 50;
+        width: var(--sidebar-width-mobile);
+        transform: translateX(-100%);
+        transition: transform 0.2s ease;
+        box-shadow: none;
+    }
+
+    [data-slot="sidebar"][data-mobile="true"][data-open="true"] {
+        transform: translateX(0);
+        box-shadow: 0 0 40px rgb(0 0 0 / 0.4);
+    }
+
+    /* Top bar height: 4rem expanded, 3rem when sidebar is icon-collapsed.
+       Mirrors the shadcn class group-has-data-[collapsible=icon]/sidebar-wrapper:h-12
+       which is a Tailwind v4 feature not available in Tailwind v3. */
+    .sidebar-header-trim {
+        height: 4rem;
+    }
+
+    .group\/sidebar-wrapper:has([data-collapsible="icon"]) .sidebar-header-trim {
+        height: 3rem;
+    }
+
+    /* Icon-collapsed mode: hide every child except the first (the icon/avatar). */
+    .group\/sidebar-wrapper:has([data-collapsible="icon"]) .group\/menu-button {
+        justify-content: center;
+        padding: 0.5rem;
+    }
+
+    .group\/sidebar-wrapper:has([data-collapsible="icon"]) .group\/menu-button > *:not(:first-child) {
+        display: none;
+    }
+
+    /* Icon-collapsed mode: menu button active/hover uses the sidebar primary color. */
+    .group\/sidebar-wrapper:has([data-collapsible="icon"]) .group\/menu-button[data-active="true"],
+    .group\/sidebar-wrapper:has([data-collapsible="icon"]) .group\/menu-button:hover {
+        background-color: hsl(var(--adm-sidebar-primary));
+        color: hsl(var(--adm-sidebar-primary-foreground));
+    }
+
+    /* Icon-collapsed mode: hide group labels. */
+    [data-collapsible="icon"] [data-slot="sidebar-group-label"] {
+        display: none;
+    }
+
+    /* Icon-collapsed mode: hide the brand logo (no room in the icon rail). */
+    [data-collapsible="icon"] [data-logo="logo"] {
+        display: none;
+    }
+
+    /* Scrollbar polish for sidebar content */
+    [data-slot="sidebar-content"] {
+        scrollbar-width: thin;
+    }
+}

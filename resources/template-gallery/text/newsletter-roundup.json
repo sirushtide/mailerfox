@@ -1,0 +1,6 @@
+{
+    "name": "Newsletter Roundup",
+    "description": "Weekly newsletter with curated highlights.",
+    "category": "marketing",
+    "html_content": "<h1>This week at {company_name}</h1><p>Hi {first_name},</p><p>Here are the highlights from this week:</p><h2>1. Featured article</h2><p>Our deep-dive on the topic everyone is talking about — what changed, why it matters, and what to do next.</p><h2>2. Customer story</h2><p>How one of our customers cut their workflow time by 40% in a single afternoon.</p><h2>3. Quick tip</h2><p>Try this short keyboard shortcut to speed up your daily workflow.</p><p>Read everything on the blog and let us know what you think.</p><p>— The {company_name} Team</p>"
+}

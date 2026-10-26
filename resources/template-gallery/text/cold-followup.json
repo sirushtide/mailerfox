@@ -1,0 +1,6 @@
+{
+    "name": "Cold Follow-up",
+    "description": "Polite follow-up to a previous cold email.",
+    "category": "cold",
+    "html_content": "<p>Hi {first_name},</p><p>Just floating my note from last week back to the top of your inbox in case it got buried.</p><p>The short version: we help teams like yours {value_proposition}, and I'd love to learn more about what you're working on.</p><p>Would a quick call this week or next make sense? Even 10 minutes is enough to know if there's a fit.</p><p>Thanks,<br>{sender_name}</p>"
+}

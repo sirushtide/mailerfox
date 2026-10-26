@@ -1,0 +1,6 @@
+{
+    "name": "Re-engagement",
+    "description": "Win back inactive subscribers with a friendly nudge.",
+    "category": "automation",
+    "html_content": "<h1>We miss you, {first_name}</h1><p>It's been a while since we last saw you, and we wanted to check in.</p><p>A lot has changed since you were last active:</p><ul><li>A redesigned interface that's much easier to use</li><li>New automations that save hours each week</li><li>Better reporting to help you make decisions</li></ul><p>If you'd like to take another look, log in any time — your account is still here.</p><p>If you'd rather not hear from us, no hard feelings — you can unsubscribe at any time.</p><p>— The {company_name} Team</p>"
+}

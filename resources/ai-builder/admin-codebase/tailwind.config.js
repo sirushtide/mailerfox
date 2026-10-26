@@ -1,0 +1,83 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+    content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+    theme: {
+        extend: {
+            colors: {
+                brand: {
+                    primary: 'var(--brand-primary)',
+                    secondary: 'var(--brand-secondary)',
+                    bg: 'var(--brand-bg)',
+                    text: 'var(--brand-text)',
+                },
+                ds: {
+                    background: 'var(--ds-background)',
+                    foreground: 'var(--ds-foreground)',
+                    muted: 'var(--ds-muted)',
+                    'muted-foreground': 'var(--ds-muted-foreground)',
+                    border: 'var(--ds-border)',
+                    input: 'var(--ds-input)',
+                    ring: 'var(--ds-ring)',
+                    card: 'var(--ds-card)',
+                    'card-foreground': 'var(--ds-card-foreground)',
+                    popover: 'var(--ds-popover)',
+                    'popover-foreground': 'var(--ds-popover-foreground)',
+                    primary: 'var(--ds-primary)',
+                    'primary-foreground': 'var(--ds-primary-foreground)',
+                    secondary: 'var(--ds-secondary)',
+                    'secondary-foreground': 'var(--ds-secondary-foreground)',
+                    accent: 'var(--ds-accent)',
+                    'accent-foreground': 'var(--ds-accent-foreground)',
+                    destructive: 'var(--ds-destructive)',
+                    'destructive-foreground': 'var(--ds-destructive-foreground)',
+                },
+                // Theme tokens in HSL triplet format so opacity modifiers
+                // (bg-primary/10, bg-muted/50, text-primary/70, …) work. The
+                // --ds-*-hsl vars are set by the PHP ThemeApplier per project.
+                background: 'hsl(var(--ds-background-hsl))',
+                foreground: 'hsl(var(--ds-foreground-hsl))',
+                primary: 'hsl(var(--ds-primary-hsl))',
+                'primary-foreground': 'hsl(var(--ds-primary-foreground-hsl))',
+                secondary: 'hsl(var(--ds-secondary-hsl))',
+                'secondary-foreground': 'hsl(var(--ds-secondary-foreground-hsl))',
+                destructive: 'hsl(var(--ds-destructive-hsl))',
+                'destructive-foreground': 'hsl(var(--ds-destructive-foreground-hsl))',
+                ring: 'hsl(var(--ds-ring-hsl))',
+                muted: 'hsl(var(--ds-muted-hsl))',
+                'muted-foreground': 'hsl(var(--ds-muted-foreground-hsl))',
+                accent: 'hsl(var(--ds-accent-hsl))',
+                'accent-foreground': 'hsl(var(--ds-accent-foreground-hsl))',
+                border: 'hsl(var(--ds-border-hsl))',
+                input: 'hsl(var(--ds-input-hsl))',
+                card: 'hsl(var(--ds-card-hsl))',
+                'card-foreground': 'hsl(var(--ds-card-foreground-hsl))',
+                popover: 'hsl(var(--ds-popover-hsl))',
+                'popover-foreground': 'hsl(var(--ds-popover-foreground-hsl))',
+                sidebar: {
+                    DEFAULT: 'hsl(var(--adm-sidebar))',
+                    foreground: 'hsl(var(--adm-sidebar-foreground))',
+                    primary: 'hsl(var(--adm-sidebar-primary))',
+                    'primary-foreground': 'hsl(var(--adm-sidebar-primary-foreground))',
+                    accent: 'hsl(var(--adm-sidebar-accent))',
+                    'accent-foreground': 'hsl(var(--adm-sidebar-accent-foreground))',
+                    border: 'hsl(var(--adm-sidebar-border))',
+                    ring: 'hsl(var(--adm-sidebar-ring))',
+                },
+            },
+            borderRadius: {
+                lg: 'var(--radius)',
+                md: 'calc(var(--radius) - 2px)',
+                sm: 'calc(var(--radius) - 4px)',
+                ds: 'var(--ds-radius)',
+            },
+            fontFamily: {
+                sans: ['var(--ds-font-sans)', 'system-ui', 'sans-serif'],
+                heading: ['var(--ds-font-heading)', 'var(--ds-font-sans)', 'system-ui', 'sans-serif'],
+            },
+            boxShadow: {
+                ds: 'var(--ds-shadow)',
+            },
+        },
+    },
+    plugins: [],
+};

@@ -1,0 +1,6 @@
+{
+    "name": "Product Launch Announcement",
+    "description": "Announce a new product or feature to your audience.",
+    "category": "marketing",
+    "html_content": "<h1>Introducing our newest release</h1><p>Hi {first_name},</p><p>We've been working on something special, and today we're excited to share it with you.</p><h2>What's new</h2><ul><li>A faster, simpler way to get started</li><li>Smarter automation that saves you hours</li><li>A redesigned dashboard you'll actually enjoy using</li></ul><p>Be among the first to try it — no setup needed, no extra fee for existing customers.</p><p><strong>Try it now</strong> from your dashboard, or reply to this email if you'd like a quick walkthrough.</p><p>Thanks for being part of this journey.</p><p>— The {company_name} Team</p>"
+}

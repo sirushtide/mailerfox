@@ -1,0 +1,389 @@
+{
+  "slug": "gorealo-market-rate-update",
+  "name": "GoRealo — Rate education",
+  "description": "Subject: A quick guide to comparing mortgage rates | Preheader: Rate, APR, points, and payment belong in the same conversation.",
+  "type": "email",
+  "builder": "mailpurse",
+  "html_content": "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>A quick guide to comparing mortgage rates</title></head><body style=\"margin:0;background:#f1f4f8;font-family:Arial,Helvetica,sans-serif\"><div style=\"display:none;max-height:0;overflow:hidden;mso-hide:all\">Rate, APR, points, and payment belong in the same conversation.</div><table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background:#f1f4f8\"><tr><td align=\"center\" style=\"padding:24px 12px\"><table role=\"presentation\" width=\"600\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"width:100%;max-width:600px;background:#fff\"><tr><td style=\"padding:24px 30px;border-top:5px solid #1459d9\"><a href=\"https://www.gorealo.com/\"><img src=\"https://www.gorealo.com/media/site-assets/gorealo-logo.svg\" width=\"154\" alt=\"GoRealo\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a><p style=\"margin:9px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p></td></tr><tr><td style=\"padding:30px;background:#f0f5ff\"><p style=\"margin:0 0 12px;color:#1459d9;font-size:11px;font-weight:bold;letter-spacing:2px\">THE RATE CHECK</p><h1 style=\"font-size:30px;line-height:1.2;margin:0 0 16px;color:#162849\">The lowest number isn’t the whole offer.</h1><p style=\"font-size:16px;line-height:1.7;color:#374151;margin:0 0 14px\">Hi {{first_name}}, when you compare mortgage offers, make sure you’re looking at the same loan amount, program, term, points, and assumptions.</p><p style=\"font-size:16px;line-height:1.7;color:#162849;font-weight:bold;margin:0\">Have you received more than one quote?</p><p style=\"margin:20px 0 0\"><img src=\"https://raw.githubusercontent.com/sirushtide/mailerfox/main/resources/email-templates/gorealo/assets/Loan-Savings-Math-GoRealo.png\" alt=\"GoRealo: Rate education\" width=\"540\" style=\"display:block;width:100%;max-width:540px;height:auto;border:0;border-radius:8px\"></p></td></tr><tr><td style=\"padding:22px 30px\"><table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\"><tr><td style=\"padding:14px 0;border-bottom:1px solid #e5eaf1\"><h2 style=\"font-size:17px;line-height:1.35;margin:0 0 7px;color:#162849\">Rate is the interest charged</h2><p style=\"font-size:15px;line-height:1.75;color:#4b5563;margin:0\">The note rate helps determine principal and interest, but it doesn’t show all borrowing costs.</p></td></tr><tr><td style=\"padding:14px 0;border-bottom:1px solid #e5eaf1\"><h2 style=\"font-size:17px;line-height:1.35;margin:0 0 7px;color:#162849\">APR brings costs into view</h2><p style=\"font-size:15px;line-height:1.75;color:#4b5563;margin:0\">APR reflects certain loan costs and can help compare offers, though the assumptions still need to match.</p></td></tr><tr><td style=\"padding:14px 0;border-bottom:1px solid #e5eaf1\"><h2 style=\"font-size:17px;line-height:1.35;margin:0 0 7px;color:#162849\">Confirm the assumptions</h2><p style=\"font-size:15px;line-height:1.75;color:#4b5563;margin:0\">Credit score, loan-to-value, property, occupancy, and points can change the quote. Published rates can change without notice.</p></td></tr></table><p style=\"font-size:15px;line-height:1.75;color:#374151;margin:22px 0\">Reply with the parts you’re comparing and we can help you frame useful questions for your lender.</p><p style=\"font-size:15px;line-height:1.75;color:#374151\">Warmly,<br><strong>The GoRealo Team</strong></p><table role=\"presentation\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin:22px 0\"><tr><td bgcolor=\"#1459d9\" style=\"border-radius:4px\"><a href=\"https://www.gorealo.com/mortgage-rates/\" style=\"display:inline-block;padding:14px 24px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold\">See current rates</a></td></tr></table><p style=\"font-size:13px;line-height:1.7;color:#667085\">Prefer to talk? Call <a href=\"tel:+18667139292\" style=\"color:#1459d9\">1-866-713-9292</a> or reply to this email.</p></td></tr><tr><td style=\"padding:20px 30px;background:#f4f6f9\"><p style=\"font-size:11px;line-height:1.7;color:#667085;margin:0\">GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · Florida Mortgage Broker License #MBR1434.<br>5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256.<br>Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply.</p><p style=\"font-size:11px;line-height:1.7;color:#667085\"><a href=\"https://www.gorealo.com/privacy-policy/\" style=\"color:#1459d9\">Privacy</a> · <a href=\"{{unsubscribe_url}}\" style=\"color:#1459d9\">Unsubscribe</a></p></td></tr></table></td></tr></table></body></html>",
+  "plain_text_content": "A quick guide to comparing mortgage rates Rate, APR, points, and payment belong in the same conversation. MORTGAGE OPTIONS, MADE CLEAR THE RATE CHECK The lowest number isn’t the whole offer. Hi {{first_name}}, when you compare mortgage offers, make sure you’re looking at the same loan amount, program, term, points, and assumptions. Have you received more than one quote? Rate is the interest charged The note rate helps determine principal and interest, but it doesn’t show all borrowing costs. APR brings costs into view APR reflects certain loan costs and can help compare offers, though the assumptions still need to match. Confirm the assumptions Credit score, loan-to-value, property, occupancy, and points can change the quote. Published rates can change without notice. Reply with the parts you’re comparing and we can help you frame useful questions for your lender. Warmly, The GoRealo Team See current rates Prefer to talk? Call 1-866-713-9292 or reply to this email. GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · Florida Mortgage Broker License #MBR1434. 5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256. Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply. Privacy · Unsubscribe",
+  "builder_data": {
+    "builder": "mailpurse",
+    "version": 1,
+    "meta": {
+      "name": "GoRealo — Rate education"
+    },
+    "style": {},
+    "customCss": "",
+    "sections": [
+      {
+        "id": "s-gorealo-brand",
+        "name": "GoRealo brand",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-gorealo-brand",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "w-8aadfbead6",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"margin:0\"><a href=\"https://www.gorealo.com/\"><img src=\"https://www.gorealo.com/media/site-assets/gorealo-logo.svg\" alt=\"GoRealo\" width=\"154\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a></p><p style=\"margin:10px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-campaign-introduction",
+        "name": "Campaign introduction",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#f0f5ff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-campaign-introduction",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "w-983d7fb92d",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"margin:0 0 12px;color:#1459d9;font-size:11px;font-weight:bold;letter-spacing:2px\">THE RATE CHECK</p>",
+                  "align": "left"
+                }
+              },
+              {
+                "id": "h-165f20d5ff",
+                "type": "heading",
+                "name": "Heading",
+                "props": {
+                  "text": "The lowest number isn’t the whole offer.",
+                  "level": 1,
+                  "align": "left",
+                  "color": "#162849",
+                  "fontSize": 22
+                }
+              },
+              {
+                "id": "w-663ba58679",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:16px;line-height:1.7;color:#374151\">Hi {{first_name}}, when you compare mortgage offers, make sure you’re looking at the same loan amount, program, term, points, and assumptions.</p><p style=\"font-size:16px;line-height:1.7;color:#162849;font-weight:bold\">Have you received more than one quote?</p>",
+                  "align": "left"
+                }
+              },
+              {
+                "id": "i-31a6608247",
+                "type": "image",
+                "name": "Campaign image",
+                "props": {
+                  "url": "https://raw.githubusercontent.com/sirushtide/mailerfox/main/resources/email-templates/gorealo/assets/Loan-Savings-Math-GoRealo.png",
+                  "alt": "GoRealo: Rate education",
+                  "align": "center",
+                  "width": "100%",
+                  "borderRadius": "8px"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-rate-is-the-interest-charged",
+        "name": "Rate is the interest charged",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-rate-is-the-interest-charged",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "h-b553ed1e15",
+                "type": "heading",
+                "name": "Heading",
+                "props": {
+                  "text": "Rate is the interest charged",
+                  "level": 2,
+                  "align": "left",
+                  "color": "#162849",
+                  "fontSize": 18
+                }
+              },
+              {
+                "id": "w-e9034fbf45",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:15px;line-height:1.75;color:#4b5563\">The note rate helps determine principal and interest, but it doesn’t show all borrowing costs.</p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-apr-brings-costs-into-view",
+        "name": "APR brings costs into view",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-apr-brings-costs-into-view",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "h-0040138f3e",
+                "type": "heading",
+                "name": "Heading",
+                "props": {
+                  "text": "APR brings costs into view",
+                  "level": 2,
+                  "align": "left",
+                  "color": "#162849",
+                  "fontSize": 18
+                }
+              },
+              {
+                "id": "w-96961ef980",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:15px;line-height:1.75;color:#4b5563\">APR reflects certain loan costs and can help compare offers, though the assumptions still need to match.</p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-confirm-the-assumptions",
+        "name": "Confirm the assumptions",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-confirm-the-assumptions",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "h-66d592e35b",
+                "type": "heading",
+                "name": "Heading",
+                "props": {
+                  "text": "Confirm the assumptions",
+                  "level": 2,
+                  "align": "left",
+                  "color": "#162849",
+                  "fontSize": 18
+                }
+              },
+              {
+                "id": "w-bc05f360c1",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:15px;line-height:1.75;color:#4b5563\">Credit score, loan-to-value, property, occupancy, and points can change the quote. Published rates can change without notice.</p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-personal-reply",
+        "name": "Personal reply",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-personal-reply",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "w-567910e534",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:15px;line-height:1.75;color:#374151\">Reply with the parts you’re comparing and we can help you frame useful questions for your lender.</p><p style=\"font-size:15px;line-height:1.75;color:#374151\">Warmly,<br><strong>The GoRealo Team</strong></p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-primary-call-to-action",
+        "name": "Primary call to action",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-primary-call-to-action",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "cta-market-rate-update",
+                "type": "button",
+                "name": "Primary CTA",
+                "props": {
+                  "text": "See current rates",
+                  "url": "https://www.gorealo.com/mortgage-rates/",
+                  "align": "left",
+                  "backgroundColor": "#1459d9",
+                  "textColor": "#ffffff",
+                  "size": "md",
+                  "paddingX": 24,
+                  "paddingY": 14,
+                  "borderRadius": "4px"
+                }
+              },
+              {
+                "id": "w-9357644425",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:13px;color:#667085;line-height:1.6\">Prefer to talk? Call <a href=\"tel:+18667139292\" style=\"color:#1459d9\">1-866-713-9292</a> or reply to this email.</p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-compliance-footer",
+        "name": "Compliance footer",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#f4f6f9",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-compliance-footer",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "w-c74469f8aa",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:11px;line-height:1.7;color:#667085\">GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · Florida Mortgage Broker License #MBR1434.<br>5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256.<br>Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply.</p><p style=\"font-size:11px;line-height:1.7;color:#667085\"><a href=\"https://www.gorealo.com/privacy-policy/\" style=\"color:#1459d9\">Privacy</a> · <a href=\"{{unsubscribe_url}}\" style=\"color:#1459d9\">Unsubscribe</a></p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "thumbnail": null,
+  "is_active": true,
+  "available_to_all_groups": true,
+  "settings": {
+    "source": "gorealo-campaign-pack",
+    "subject": "A quick guide to comparing mortgage rates",
+    "preheader": "Rate, APR, points, and payment belong in the same conversation.",
+    "category": "Rate education",
+    "primary_cta": "See current rates",
+    "primary_url": "https://www.gorealo.com/mortgage-rates/",
+    "source_image": "Loan-Savings-Math-GoRealo.png"
+  }
+}

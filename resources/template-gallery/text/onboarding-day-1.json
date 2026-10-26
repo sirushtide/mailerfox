@@ -1,0 +1,6 @@
+{
+    "name": "Onboarding — Day 1",
+    "description": "First-day onboarding email for new users.",
+    "category": "automation",
+    "html_content": "<h1>Let's get you set up</h1><p>Hi {first_name},</p><p>Welcome aboard. To get the most out of {company_name}, here are three quick things to try today:</p><ol><li>Complete your profile so we can tailor things to you</li><li>Connect your first integration (it takes under a minute)</li><li>Explore the starter templates in your dashboard</li></ol><p>Most people see real results within their first week — we'll send a few short tips to help you get there.</p><p>Need a hand? Just reply to this email.</p><p>— {sender_name}</p>"
+}

@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+class EnsureInstalled
+{
+    public function handle(Request $request, Closure $next): Response
+    {
+        if ($this->isInstalled()) {
+            return $next($request);
+        }
+
+        $path = ltrim($request->path(), '/');
+
+        if (
+            $path === 'install'
+            || str_starts_with($path, 'install/')
+            || str_starts_with($path, 'build/')
+            || str_starts_with($path, 'cron/')
+            || str_starts_with($path, 'storage/')
+            || str_starts_with($path, 'public/')
+            || $path === 'up'
+        ) {
+            return $next($request);
+        }
+
+        return redirect()->route('install.welcome');
+    }
+
+    private function isInstalled(): bool
+    {
+        return (bool) config('mailpurse.skip_install_wizard', false)
+            || in_array(request()->getHost(), ['localhost', '127.0.0.1', '::1'], true)
+            || is_file($this->installedPath());
+    }
+
+    private function installedPath(): string
+    {
+        return storage_path('app/private/installed.json');
+    }
+}

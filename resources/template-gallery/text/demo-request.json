@@ -1,0 +1,6 @@
+{
+    "name": "Demo Request",
+    "description": "Invite a prospect to book a product demo.",
+    "category": "cold",
+    "html_content": "<p>Hi {first_name},</p><p>Based on what your team is working on, I think a quick demo of {company_name} could be useful — especially around {pain_point}.</p><p>It's a 20-minute walkthrough, tailored to how you'd actually use it. No slides, no fluff.</p><p>Here are a few times that work this week:</p><ul><li>Tuesday at 10:00 AM</li><li>Wednesday at 2:00 PM</li><li>Thursday at 11:00 AM</li></ul><p>If none of those work, just reply with what does and I'll find something else.</p><p>Thanks,<br>{sender_name}</p>"
+}

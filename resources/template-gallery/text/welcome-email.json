@@ -1,0 +1,6 @@
+{
+    "name": "Welcome Email",
+    "description": "A friendly welcome message to greet new subscribers.",
+    "category": "marketing",
+    "html_content": "<h1>Welcome to {company_name}</h1><p>Hi {first_name},</p><p>Thanks for joining us. We're excited to have you on board.</p><p>Here's what you can expect from our emails:</p><ul><li>Practical tips delivered weekly</li><li>Early access to new features</li><li>Exclusive subscriber-only offers</li></ul><p>If you have any questions, just reply to this email — we read every message.</p><p>Cheers,<br>The {company_name} Team</p>"
+}

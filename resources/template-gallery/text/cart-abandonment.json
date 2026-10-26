@@ -1,0 +1,6 @@
+{
+    "name": "Cart Abandonment",
+    "description": "Remind shoppers to complete a purchase they left behind.",
+    "category": "ecommerce",
+    "html_content": "<h1>You left something behind</h1><p>Hi {first_name},</p><p>You added a few items to your cart but didn't finish checking out. We saved them for you in case you want to come back.</p><p><a href=\"{cart_link}\">Return to your cart</a></p><p>If you ran into any trouble during checkout, reply to this email and we'll help right away.</p><p>— The {company_name} Team</p>"
+}

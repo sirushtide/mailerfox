@@ -1,0 +1,6 @@
+{
+    "name": "Thank You Note",
+    "description": "A short, sincere thank-you message.",
+    "category": "other",
+    "html_content": "<h1>Thank you</h1><p>Hi {first_name},</p><p>Just a quick note to say thanks for being a customer of {company_name}.</p><p>Customers like you are the reason we get to do what we do — and we don't take that for granted.</p><p>If there's ever anything we can do better, you can reply to this email any time. We read everything.</p><p>With appreciation,<br>{sender_name}</p>"
+}
