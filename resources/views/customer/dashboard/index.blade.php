@@ -441,6 +441,7 @@
     function initChart() {
         var canvas = document.getElementById('engagementChart');
         if (!canvas) return;
+        if (typeof Chart === 'undefined') return;
         if (_chart) { _chart.destroy(); _chart = null; }
 
         var isDark    = document.documentElement.classList.contains('dark');

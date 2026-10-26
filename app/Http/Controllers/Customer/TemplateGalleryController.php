@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Models\PublicTemplate;
 use App\Models\Setting;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -118,8 +119,111 @@ class TemplateGalleryController extends Controller
         return $headers;
     }
 
+    private function publicTemplatePreviewImage(PublicTemplate $template): ?string
+    {
+        if (is_string($template->thumbnail) && trim($template->thumbnail) !== '') {
+            return $template->thumbnail;
+        }
+
+        $findImage = function (array $widgets) use (&$findImage): ?string {
+            foreach ($widgets as $widget) {
+                if (!is_array($widget)) {
+                    continue;
+                }
+                if (($widget['type'] ?? null) === 'image') {
+                    $url = data_get($widget, 'props.url');
+                    if (is_string($url) && trim($url) !== '') {
+                        return $url;
+                    }
+                }
+                $props = is_array($widget['props'] ?? null) ? $widget['props'] : [];
+                foreach (['columns', 'items'] as $key) {
+                    foreach (($props[$key] ?? []) as $nested) {
+                        if (!is_array($nested)) {
+                            continue;
+                        }
+                        $image = $findImage($nested['widgets'] ?? []);
+                        if ($image !== null) {
+                            return $image;
+                        }
+                    }
+                }
+            }
+
+            return null;
+        };
+
+        foreach (($template->builder_data['sections'] ?? []) as $section) {
+            foreach (($section['columns'] ?? []) as $column) {
+                $image = $findImage($column['widgets'] ?? []);
+                if ($image !== null) {
+                    return $image;
+                }
+            }
+        }
+
+        return 'https://raw.githubusercontent.com/sirushtide/mailerfox/main/resources/email-templates/gorealo/assets/hero.webp';
+    }
+
     public function list(Request $request, string $resourceType): JsonResponse
     {
+        if (strtolower($resourceType) === 'emailtemplates') {
+            $customer = auth('customer')->user();
+            abort_unless($customer, 404);
+
+            $groupIds = $customer->customerGroups()
+                ->pluck('customer_groups.id')
+                ->map(fn ($id) => (int) $id)
+                ->values()
+                ->all();
+
+            $query = PublicTemplate::query()
+                ->with('category')
+                ->where('is_active', true)
+                ->where('builder', 'mailpurse')
+                ->where(function ($q) use ($groupIds) {
+                    $q->where('available_to_all_groups', true);
+                    if ($groupIds !== []) {
+                        $q->orWhere(function ($restricted) use ($groupIds) {
+                            $restricted->where('available_to_all_groups', false)
+                                ->whereHas('customerGroups', fn ($groups) => $groups->whereIn('customer_groups.id', $groupIds));
+                        });
+                    }
+                })
+                ->when($request->filled('search'), function ($q) use ($request) {
+                    $search = trim((string) $request->query('search'));
+                    $q->where(function ($matches) use ($search) {
+                        $matches->where('name', 'like', '%' . $search . '%')
+                            ->orWhere('description', 'like', '%' . $search . '%');
+                    });
+                })
+                ->when($request->filled('category'), function ($q) use ($request) {
+                    $category = (string) $request->query('category');
+                    $q->whereHas('category', fn ($categories) => $categories->where('slug', $category));
+                });
+
+            $publicTemplates = $query->orderBy('name')->get();
+            $templates = $publicTemplates->map(fn (PublicTemplate $template) => [
+                'id' => 'public-' . $template->id,
+                'name' => $template->name,
+                'description' => $template->description,
+                'thumbnail' => $template->thumbnail,
+                'preview_image' => $this->publicTemplatePreviewImage($template),
+                'category' => $template->category?->slug ?: 'other',
+                'builder' => 'mailpurse',
+                'source' => 'public',
+            ])->values();
+
+            $categories = $publicTemplates
+                ->pluck('category')
+                ->filter()
+                ->unique('id')
+                ->map(fn ($category) => ['id' => $category->slug, 'name' => $category->name])
+                ->values();
+
+            return response()->json(['templates' => $templates, 'categories' => $categories]);
+        }
+
         $perPage = (int) $request->query('per_page', 100);
         if ($perPage <= 0 || $perPage > 200) {
             $perPage = 100;
@@ -177,8 +281,23 @@ class TemplateGalleryController extends Controller
         return response()->json($response->json() ?? []);
     }
 
-    public function show(Request $request, int $templateId): JsonResponse
+    public function show(Request $request, string $templateId): JsonResponse
     {
+        if (preg_match('/^public-(\d+)$/', $templateId, $matches) === 1) {
+            $customer = auth('customer')->user();
+            abort_unless($customer, 404);
+
+            $template = PublicTemplate::query()->where('is_active', true)->findOrFail((int) $matches[1]);
+            if (!$template->available_to_all_groups) {
+                $groupIds = $customer->customerGroups()->pluck('customer_groups.id');
+                abort_unless($groupIds->isNotEmpty() && $template->customerGroups()->whereIn('customer_groups.id', $groupIds)->exists(), 403);
+            }
+
+            return response()->json(['json_code' => $template->builder_data]);
+        }
+
+        abort_unless(ctype_digit($templateId), 404);
+        $templateId = (int) $templateId;
         $payload = [
             'product_id' => $this->productId(),
             'product_secret' => $this->productSecret(),

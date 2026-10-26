@@ -4,7 +4,7 @@
   "description": "Subject: A mortgage conversation your clients can start online | Preheader: Give buyers a clear way to explore financing early.",
   "type": "email",
   "builder": "mailpurse",
-  "html_content": "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>A mortgage conversation your clients can start online</title></head><body style=\"margin:0;background:#f1f4f8;font-family:Arial,Helvetica,sans-serif\"><div style=\"display:none;max-height:0;overflow:hidden;mso-hide:all\">Give buyers a clear way to explore financing early.</div><table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background:#f1f4f8\"><tr><td align=\"center\" style=\"padding:24px 12px\"><table role=\"presentation\" width=\"600\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"width:100%;max-width:600px;background:#fff\"><tr><td style=\"padding:24px 30px;border-top:5px solid #172d54\"><a href=\"https://www.gorealo.com/\"><img src=\"https://www.gorealo.com/media/site-assets/gorealo-logo.svg\" width=\"154\" alt=\"GoRealo\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a><p style=\"margin:9px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p></td></tr><tr><td style=\"padding:30px;background:#f0f5ff\"><p style=\"margin:0 0 12px;color:#172d54;font-size:11px;font-weight:bold;letter-spacing:2px\">FOR REAL ESTATE PROFESSIONALS</p><h1 style=\"font-size:30px;line-height:1.2;margin:0 0 16px;color:#162849\">Help buyers move forward with more clarity.</h1><p style=\"font-size:16px;line-height:1.7;color:#374151;margin:0 0 14px\">Hi {{first_name}}, buyers often need a clear financing conversation before they feel ready to make a move. GoRealo combines online loan exploration with support from mortgage professionals.</p><p style=\"font-size:16px;line-height:1.7;color:#162849;font-weight:bold;margin:0\">Would a simple financing resource help your buyers?</p><p style=\"margin:20px 0 0\"><img src=\"https://raw.githubusercontent.com/sirushtide/mailerfox/main/resources/email-templates/gorealo/assets/MoveDealsForward.png\" alt=\"GoRealo: Real estate agent partners\" width=\"540\" style=\"display:block;width:100%;max-width:540px;height:auto;border:0;border-radius:8px\"></p></td></tr><tr><td style=\"padding:22px 30px\"><table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\"><tr><td style=\"padding:14px 0;border-bottom:1px solid #e5eaf1\"><h2 style=\"font-size:17px;line-height:1.35;margin:0 0 7px;color:#162849\">A useful early conversation</h2><p style=\"font-size:15px;line-height:1.75;color:#4b5563;margin:0\">Help buyers think about budget, loan options, and preapproval before they make an offer.</p></td></tr><tr><td style=\"padding:14px 0;border-bottom:1px solid #e5eaf1\"><h2 style=\"font-size:17px;line-height:1.35;margin:0 0 7px;color:#162849\">Transparent comparisons</h2><p style=\"font-size:15px;line-height:1.75;color:#4b5563;margin:0\">Current rates and program options can help frame questions; each borrower’s pricing and eligibility differs.</p></td></tr><tr><td style=\"padding:14px 0;border-bottom:1px solid #e5eaf1\"><h2 style=\"font-size:17px;line-height:1.35;margin:0 0 7px;color:#162849\">Let’s connect</h2><p style=\"font-size:15px;line-height:1.75;color:#4b5563;margin:0\">Tell us how you support buyers and we can discuss an approach that works for your business.</p></td></tr></table><p style=\"font-size:15px;line-height:1.75;color:#374151;margin:22px 0\">Reply and tell us what your clients ask most often. We can share a resource that fits your workflow.</p><p style=\"font-size:15px;line-height:1.75;color:#374151\">Warmly,<br><strong>The GoRealo Team</strong></p><table role=\"presentation\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin:22px 0\"><tr><td bgcolor=\"#172d54\" style=\"border-radius:4px\"><a href=\"https://www.gorealo.com/\" style=\"display:inline-block;padding:14px 24px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold\">Explore GoRealo</a></td></tr></table><p style=\"font-size:13px;line-height:1.7;color:#667085\">Prefer to talk? Call <a href=\"tel:+18667139292\" style=\"color:#1459d9\">1-866-713-9292</a> or reply to this email.</p></td></tr><tr><td style=\"padding:20px 30px;background:#f4f6f9\"><p style=\"font-size:11px;line-height:1.7;color:#667085;margin:0\">GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · Florida Mortgage Broker License #MBR1434.<br>5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256.<br>Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply.</p><p style=\"font-size:11px;line-height:1.7;color:#667085\"><a href=\"https://www.gorealo.com/privacy-policy/\" style=\"color:#1459d9\">Privacy</a> · <a href=\"{{unsubscribe_url}}\" style=\"color:#1459d9\">Unsubscribe</a></p></td></tr></table></td></tr></table></body></html>",
+  "html_content": "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>A mortgage conversation your clients can start online</title></head><body style=\"margin:0;background:#f1f4f8;font-family:Arial,Helvetica,sans-serif\"><div style=\"display:none;max-height:0;overflow:hidden;mso-hide:all\">Give buyers a clear way to explore financing early.</div><table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background:#f1f4f8\"><tr><td align=\"center\" style=\"padding:24px 12px\"><table role=\"presentation\" width=\"600\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"width:100%;max-width:600px;background:#fff\"><tr><td style=\"padding:24px 30px;border-top:5px solid #0BFF56\"><a href=\"https://www.gorealo.com/\"><img src=\"https://app.gorealo.org/email-template-previews/gorealo/gorealo-logo.png\" width=\"154\" alt=\"GoRealo\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a><p style=\"margin:9px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p></td></tr><tr><td style=\"padding:30px;background:#f0f5ff\"><p style=\"margin:0 0 12px;color:#003FDA;font-size:11px;font-weight:bold;letter-spacing:2px\">FOR REAL ESTATE PROFESSIONALS</p><h1 style=\"font-size:30px;line-height:1.2;margin:0 0 16px;color:#162849\">Help buyers move forward with more clarity.</h1><p style=\"font-size:16px;line-height:1.7;color:#374151;margin:0 0 14px\">Hi {{first_name}}, buyers often need a clear financing conversation before they feel ready to make a move. GoRealo combines online loan exploration with support from mortgage professionals.</p><p style=\"font-size:16px;line-height:1.7;color:#162849;font-weight:bold;margin:0\">Would a simple financing resource help your buyers?</p><p style=\"margin:20px 0 0\"><img src=\"https://app.gorealo.org/email-template-previews/gorealo/assets/move-deals-forward.png\" alt=\"GoRealo: Real estate agent partners\" width=\"540\" style=\"display:block;width:100%;max-width:540px;height:auto;border:0;border-radius:8px\"></p></td></tr><tr><td style=\"padding:22px 30px\"><table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\"><tr><td style=\"padding:14px 0;border-bottom:1px solid #e5eaf1\"><h2 style=\"font-size:17px;line-height:1.35;margin:0 0 7px;color:#162849\">A useful early conversation</h2><p style=\"font-size:15px;line-height:1.75;color:#4b5563;margin:0\">Help buyers think about budget, loan options, and preapproval before they make an offer.</p></td></tr><tr><td style=\"padding:14px 0;border-bottom:1px solid #e5eaf1\"><h2 style=\"font-size:17px;line-height:1.35;margin:0 0 7px;color:#162849\">Transparent comparisons</h2><p style=\"font-size:15px;line-height:1.75;color:#4b5563;margin:0\">Current rates and program options can help frame questions; each borrower’s pricing and eligibility differs.</p></td></tr><tr><td style=\"padding:14px 0;border-bottom:1px solid #e5eaf1\"><h2 style=\"font-size:17px;line-height:1.35;margin:0 0 7px;color:#162849\">Let’s connect</h2><p style=\"font-size:15px;line-height:1.75;color:#4b5563;margin:0\">Tell us how you support buyers and we can discuss an approach that works for your business.</p></td></tr></table><p style=\"font-size:15px;line-height:1.75;color:#374151;margin:22px 0\">Reply and tell us what your clients ask most often. We can share a resource that fits your workflow.</p><p style=\"font-size:15px;line-height:1.75;color:#374151\">Warmly,<br><strong>The GoRealo Team</strong></p><table role=\"presentation\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin:22px 0\"><tr><td bgcolor=\"#003FDA\" style=\"border-radius:4px\"><a href=\"https://www.gorealo.com/\" style=\"display:inline-block;padding:14px 24px;color:#fff;text-decoration:none;font-size:15px;font-weight:bold\">Explore GoRealo</a></td></tr></table><p style=\"font-size:13px;line-height:1.7;color:#667085\">Prefer to talk? Call <a href=\"tel:+18667139292\" style=\"color:#003FDA\">1-866-713-9292</a> or reply to this email.</p></td></tr><tr><td style=\"padding:20px 30px;background:#f4f6f9\"><p style=\"font-size:11px;line-height:1.7;color:#667085;margin:0\">GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · Florida Mortgage Broker License #MBR1434.<br>5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256.<br>Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply.</p><p style=\"font-size:11px;line-height:1.7;color:#667085\"><a href=\"https://www.gorealo.com/privacy-policy/\" style=\"color:#003FDA\">Privacy</a> · <a href=\"{{unsubscribe_url}}\" style=\"color:#003FDA\">Unsubscribe</a></p></td></tr></table></td></tr></table></body></html>",
   "plain_text_content": "A mortgage conversation your clients can start online Give buyers a clear way to explore financing early. MORTGAGE OPTIONS, MADE CLEAR FOR REAL ESTATE PROFESSIONALS Help buyers move forward with more clarity. Hi {{first_name}}, buyers often need a clear financing conversation before they feel ready to make a move. GoRealo combines online loan exploration with support from mortgage professionals. Would a simple financing resource help your buyers? A useful early conversation Help buyers think about budget, loan options, and preapproval before they make an offer. Transparent comparisons Current rates and program options can help frame questions; each borrower’s pricing and eligibility differs. Let’s connect Tell us how you support buyers and we can discuss an approach that works for your business. Reply and tell us what your clients ask most often. We can share a resource that fits your workflow. Warmly, The GoRealo Team Explore GoRealo Prefer to talk? Call 1-866-713-9292 or reply to this email. GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · Florida Mortgage Broker License #MBR1434. 5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256. Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply. Privacy · Unsubscribe",
   "builder_data": {
     "builder": "mailpurse",
@@ -37,11 +37,11 @@
             },
             "widgets": [
               {
-                "id": "w-8aadfbead6",
+                "id": "w-271f32c33f",
                 "type": "rich_text",
                 "name": "Text",
                 "props": {
-                  "html": "<p style=\"margin:0\"><a href=\"https://www.gorealo.com/\"><img src=\"https://www.gorealo.com/media/site-assets/gorealo-logo.svg\" alt=\"GoRealo\" width=\"154\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a></p><p style=\"margin:10px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p>",
+                  "html": "<p style=\"margin:0\"><a href=\"https://www.gorealo.com/\"><img src=\"https://app.gorealo.org/email-template-previews/gorealo/gorealo-logo.png\" alt=\"GoRealo\" width=\"154\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a></p><p style=\"margin:10px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p>",
                   "align": "left"
                 }
               }
@@ -71,11 +71,11 @@
             },
             "widgets": [
               {
-                "id": "w-a439c0aa57",
+                "id": "w-92a629beda",
                 "type": "rich_text",
                 "name": "Text",
                 "props": {
-                  "html": "<p style=\"margin:0 0 12px;color:#172d54;font-size:11px;font-weight:bold;letter-spacing:2px\">FOR REAL ESTATE PROFESSIONALS</p>",
+                  "html": "<p style=\"margin:0 0 12px;color:#003FDA;font-size:11px;font-weight:bold;letter-spacing:2px\">FOR REAL ESTATE PROFESSIONALS</p>",
                   "align": "left"
                 }
               },
@@ -101,11 +101,11 @@
                 }
               },
               {
-                "id": "i-25b7047909",
+                "id": "i-2ab6f4dd6e",
                 "type": "image",
                 "name": "Campaign image",
                 "props": {
-                  "url": "https://raw.githubusercontent.com/sirushtide/mailerfox/main/resources/email-templates/gorealo/assets/MoveDealsForward.png",
+                  "url": "https://app.gorealo.org/email-template-previews/gorealo/assets/move-deals-forward.png",
                   "alt": "GoRealo: Real estate agent partners",
                   "align": "center",
                   "width": "100%",
@@ -317,7 +317,7 @@
                   "text": "Explore GoRealo",
                   "url": "https://www.gorealo.com/",
                   "align": "left",
-                  "backgroundColor": "#172d54",
+                  "backgroundColor": "#003FDA",
                   "textColor": "#ffffff",
                   "size": "md",
                   "paddingX": 24,
@@ -326,11 +326,11 @@
                 }
               },
               {
-                "id": "w-9357644425",
+                "id": "w-2f7f5f01c9",
                 "type": "rich_text",
                 "name": "Text",
                 "props": {
-                  "html": "<p style=\"font-size:13px;color:#667085;line-height:1.6\">Prefer to talk? Call <a href=\"tel:+18667139292\" style=\"color:#1459d9\">1-866-713-9292</a> or reply to this email.</p>",
+                  "html": "<p style=\"font-size:13px;color:#667085;line-height:1.6\">Prefer to talk? Call <a href=\"tel:+18667139292\" style=\"color:#003FDA\">1-866-713-9292</a> or reply to this email.</p>",
                   "align": "left"
                 }
               }
@@ -360,11 +360,11 @@
             },
             "widgets": [
               {
-                "id": "w-c74469f8aa",
+                "id": "w-37ff58ee09",
                 "type": "rich_text",
                 "name": "Text",
                 "props": {
-                  "html": "<p style=\"font-size:11px;line-height:1.7;color:#667085\">GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · Florida Mortgage Broker License #MBR1434.<br>5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256.<br>Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply.</p><p style=\"font-size:11px;line-height:1.7;color:#667085\"><a href=\"https://www.gorealo.com/privacy-policy/\" style=\"color:#1459d9\">Privacy</a> · <a href=\"{{unsubscribe_url}}\" style=\"color:#1459d9\">Unsubscribe</a></p>",
+                  "html": "<p style=\"font-size:11px;line-height:1.7;color:#667085\">GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · Florida Mortgage Broker License #MBR1434.<br>5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256.<br>Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply.</p><p style=\"font-size:11px;line-height:1.7;color:#667085\"><a href=\"https://www.gorealo.com/privacy-policy/\" style=\"color:#003FDA\">Privacy</a> · <a href=\"{{unsubscribe_url}}\" style=\"color:#003FDA\">Unsubscribe</a></p>",
                   "align": "left"
                 }
               }
@@ -374,7 +374,7 @@
       }
     ]
   },
-  "thumbnail": null,
+  "thumbnail": "/email-template-previews/gorealo/agent-partner-intro.png",
   "is_active": true,
   "available_to_all_groups": true,
   "settings": {
@@ -384,6 +384,6 @@
     "category": "Real estate agent partners",
     "primary_cta": "Explore GoRealo",
     "primary_url": "https://www.gorealo.com/",
-    "source_image": "MoveDealsForward.png"
+    "source_image": "move-deals-forward.png"
   }
 }

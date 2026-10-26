@@ -1510,7 +1510,6 @@ const PAGE_TEMPLATE_TABS = [
 
 const EMAIL_TEMPLATE_TABS = [
     { key: 'templates', label: 'Templates', resourceType: 'emailtemplates' },
-    { key: 'blocks', label: 'Blocks', resourceType: 'emailblocks' },
 ];
 
 function normalizeGalleryCategories(raw) {

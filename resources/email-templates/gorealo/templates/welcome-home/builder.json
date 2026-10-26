@@ -29,11 +29,11 @@
           },
           "widgets": [
             {
-              "id": "w-8aadfbead6",
+              "id": "w-271f32c33f",
               "type": "rich_text",
               "name": "Text",
               "props": {
-                "html": "<p style=\"margin:0\"><a href=\"https://www.gorealo.com/\"><img src=\"https://www.gorealo.com/media/site-assets/gorealo-logo.svg\" alt=\"GoRealo\" width=\"154\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a></p><p style=\"margin:10px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p>",
+                "html": "<p style=\"margin:0\"><a href=\"https://www.gorealo.com/\"><img src=\"https://app.gorealo.org/email-template-previews/gorealo/gorealo-logo.png\" alt=\"GoRealo\" width=\"154\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a></p><p style=\"margin:10px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p>",
                 "align": "left"
               }
             }
@@ -63,11 +63,11 @@
           },
           "widgets": [
             {
-              "id": "w-73652eb2ac",
+              "id": "w-99bd0f0398",
               "type": "rich_text",
               "name": "Text",
               "props": {
-                "html": "<p style=\"margin:0 0 12px;color:#1459d9;font-size:11px;font-weight:bold;letter-spacing:2px\">YOUR NEXT CHAPTER</p>",
+                "html": "<p style=\"margin:0 0 12px;color:#003FDA;font-size:11px;font-weight:bold;letter-spacing:2px\">YOUR NEXT CHAPTER</p>",
                 "align": "left"
               }
             },
@@ -93,11 +93,11 @@
               }
             },
             {
-              "id": "i-0d78cb61a3",
+              "id": "i-ef81952754",
               "type": "image",
               "name": "Campaign image",
               "props": {
-                "url": "https://raw.githubusercontent.com/sirushtide/mailerfox/main/resources/email-templates/gorealo/assets/hero.webp",
+                "url": "https://app.gorealo.org/email-template-previews/gorealo/assets/hero.webp",
                 "alt": "GoRealo: Customer welcome",
                 "align": "center",
                 "width": "100%",
@@ -263,7 +263,7 @@
                 "text": "Explore loan options",
                 "url": "https://www.gorealo.com/apply-now",
                 "align": "left",
-                "backgroundColor": "#1459d9",
+                "backgroundColor": "#003FDA",
                 "textColor": "#ffffff",
                 "size": "md",
                 "paddingX": 24,
@@ -272,11 +272,11 @@
               }
             },
             {
-              "id": "w-9357644425",
+              "id": "w-2f7f5f01c9",
               "type": "rich_text",
               "name": "Text",
               "props": {
-                "html": "<p style=\"font-size:13px;color:#667085;line-height:1.6\">Prefer to talk? Call <a href=\"tel:+18667139292\" style=\"color:#1459d9\">1-866-713-9292</a> or reply to this email.</p>",
+                "html": "<p style=\"font-size:13px;color:#667085;line-height:1.6\">Prefer to talk? Call <a href=\"tel:+18667139292\" style=\"color:#003FDA\">1-866-713-9292</a> or reply to this email.</p>",
                 "align": "left"
               }
             }
@@ -306,11 +306,11 @@
           },
           "widgets": [
             {
-              "id": "w-c74469f8aa",
+              "id": "w-37ff58ee09",
               "type": "rich_text",
               "name": "Text",
               "props": {
-                "html": "<p style=\"font-size:11px;line-height:1.7;color:#667085\">GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · Florida Mortgage Broker License #MBR1434.<br>5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256.<br>Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply.</p><p style=\"font-size:11px;line-height:1.7;color:#667085\"><a href=\"https://www.gorealo.com/privacy-policy/\" style=\"color:#1459d9\">Privacy</a> · <a href=\"{{unsubscribe_url}}\" style=\"color:#1459d9\">Unsubscribe</a></p>",
+                "html": "<p style=\"font-size:11px;line-height:1.7;color:#667085\">GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · Florida Mortgage Broker License #MBR1434.<br>5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256.<br>Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply.</p><p style=\"font-size:11px;line-height:1.7;color:#667085\"><a href=\"https://www.gorealo.com/privacy-policy/\" style=\"color:#003FDA\">Privacy</a> · <a href=\"{{unsubscribe_url}}\" style=\"color:#003FDA\">Unsubscribe</a></p>",
                 "align": "left"
               }
             }

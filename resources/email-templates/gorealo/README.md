@@ -1,6 +1,6 @@
 # GoRealo email templates
 
-This folder contains 15 distinct customer, homebuyer, homeowner, mortgage education, and agent emails. Each campaign includes native MailerFox block-builder data and responsive email-safe HTML.
+This folder contains 15 distinct customer, homebuyer, homeowner, mortgage education, and agent emails, plus the five pre-existing GoRealo library templates. The 15 campaigns include native MailerFox block-builder data and responsive email-safe HTML. Screenshots for all 20 templates are in `public/email-template-previews/gorealo/` and are used as picker thumbnails.
 
 ## Files
 
@@ -9,6 +9,8 @@ This folder contains 15 distinct customer, homebuyer, homeowner, mortgage educat
 - `templates/<slug>/builder.json` — native editable blocks (`builder: mailpurse`).
 - `templates/<slug>/email.html` — standalone rendered HTML.
 - `assets/` — GoRealo logo, campaign imagery, and app/product images.
+- `legacy/` — HTML source for the five pre-existing GoRealo library templates.
+- `templates-overview.png` — contact sheet of all 20 rendered template screenshots.
 - `build_templates.py` — rebuilds the campaign HTML and JSON.
 - `install.php` — imports or updates these records in the app’s public template library.
 
@@ -20,7 +22,7 @@ From the application root, run the importer as the application user after the da
 php resources/email-templates/gorealo/install.php
 ```
 
-The importer upserts these 15 slugs in the `GoRealo Business` public-template category. It only changes these GoRealo campaign records. After import, preview the templates in the public template gallery and confirm personalization, recipient group, reply-to address, footer, and unsubscribe handling before sending.
+The importer upserts the 15 campaign records in the `GoRealo Business` public-template category and adds screenshot thumbnails to the five existing GoRealo records when present. After import, preview the templates in the public template gallery and confirm personalization, recipient group, reply-to address, footer, and unsubscribe handling before sending.
 
 ## Rebuild and images
 
@@ -28,7 +30,7 @@ The importer upserts these 15 slugs in the `GoRealo Business` public-template ca
 python3 resources/email-templates/gorealo/build_templates.py
 ```
 
-Images use the public repository’s `main` branch URLs so they work in email clients. If you fork this repository, update `ASSET_BASE` in the generator to your repository’s raw-content URL, push the assets, and regenerate the templates.
+The SVG logo is also provided as `assets/gorealo-logo.png` for email-client compatibility. Campaign visuals use GoRealo’s blue (`#003FDA`) and green (`#0BFF56`) brand colors. The public image files under `public/email-template-previews/gorealo/` provide durable URLs for email assets and picker screenshots.
 
 ## Campaigns
 
