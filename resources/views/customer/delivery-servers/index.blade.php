@@ -1123,7 +1123,7 @@ function deliveryServerDrawer() {
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Daily Quota</div>
-                                    <div class="mt-1 text-gray-900 dark:text-gray-100" x-text="viewingServer.daily_quota ?? '—'"></div>
+                                    <div class="mt-1 text-gray-900 dark:text-gray-100" x-text="Number(viewingServer.daily_quota ?? 0) > 0 ? Number(viewingServer.daily_quota).toLocaleString() : 'Unlimited'"></div>
                                 </div>
                                 <div>
                                     <div class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Created</div>

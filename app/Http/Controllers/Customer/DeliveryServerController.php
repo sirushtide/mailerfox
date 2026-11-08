@@ -23,7 +23,6 @@ class DeliveryServerController extends Controller
         protected UpdateServerService $updateServerService
     ) {
         $this->middleware('customer.access:servers.permissions.can_access_delivery_servers')->only([
-            'index',
             'show',
         ]);
         $this->middleware('customer.access:servers.permissions.can_create_delivery_servers')->only([
@@ -70,6 +69,10 @@ class DeliveryServerController extends Controller
             return $deliveryServer;
         }
 
+        if ($this->isSharedSystemSmtp($deliveryServer)) {
+            return $deliveryServer;
+        }
+
         $canUseSystem = (bool) $customer->groupSetting('servers.permissions.can_use_system_servers', false);
         $mustAddOwn = (bool) $customer->groupSetting('servers.permissions.must_add_delivery_server', false);
 
@@ -78,6 +81,15 @@ class DeliveryServerController extends Controller
         }
 
         abort(404);
+    }
+
+    protected function isSharedSystemSmtp(DeliveryServer $deliveryServer): bool
+    {
+        return $deliveryServer->customer_id === null
+            && $deliveryServer->type === 'smtp'
+            && (bool) $deliveryServer->locked
+            && $deliveryServer->status === 'active'
+            && $deliveryServer->name === 'System (SMTP)';
     }
 
     protected function canUseExtendedMailboxProvidersForCustomer($customer): bool
@@ -268,14 +280,19 @@ class DeliveryServerController extends Controller
 
         $mustAddOwn = (bool) $customer->groupSetting('servers.permissions.must_add_delivery_server', false);
         $canUseSystem = (bool) $customer->groupSetting('servers.permissions.can_use_system_servers', false);
+        $systemSmtpId = (int) (Setting::get('system_smtp_delivery_server_id') ?? 0);
         $canUseExtendedMailboxProviders = $this->canUseExtendedMailboxProvidersForCustomer($customer);
 
         $deliveryServers = DeliveryServer::query()
-            ->when($mustAddOwn, function ($q) use ($customer) {
-                $q->where('customer_id', $customer->id);
-            }, function ($q) use ($customer, $canUseSystem) {
-                $q->where(function ($sub) use ($customer, $canUseSystem) {
+            ->when($mustAddOwn, function ($q) use ($customer, $systemSmtpId) {
+                $q->where(function ($sub) use ($customer, $systemSmtpId) {
                     $sub->where('customer_id', $customer->id);
+                    if ($systemSmtpId > 0) $sub->orWhere('id', $systemSmtpId);
+                });
+            }, function ($q) use ($customer, $canUseSystem, $systemSmtpId) {
+                $q->where(function ($sub) use ($customer, $canUseSystem, $systemSmtpId) {
+                    $sub->where('customer_id', $customer->id);
+                    if ($systemSmtpId > 0) $sub->orWhere('id', $systemSmtpId);
                     if ($canUseSystem) {
                         $sub->orWhere(function ($sys) {
                             $sys->whereNull('customer_id')->where('status', 'active');

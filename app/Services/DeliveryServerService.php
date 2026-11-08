@@ -24,6 +24,15 @@ class DeliveryServerService
     protected function selectableDeliveryServersQueryForCustomer(Customer $customer, bool $mustAddDelivery = false, bool $canUseSystem = false): Builder
     {
         $workspaceId = session('active_workspace_id');
+        $systemSmtpId = (int) (Setting::get('system_smtp_delivery_server_id') ?? 0);
+        if ($systemSmtpId <= 0) {
+            $systemSmtpId = (int) (DeliveryServer::query()
+                ->whereNull('customer_id')
+                ->where('name', 'System (SMTP)')
+                ->where('type', 'smtp')
+                ->where('locked', true)
+                ->value('id') ?? 0);
+        }
         $allocatedSystemServerIds = collect();
 
         if (Schema::hasTable('customer_delivery_server')) {
@@ -89,17 +98,23 @@ class DeliveryServerService
         if ($workspaceId) {
             return DeliveryServer::query()
                 ->where('status', 'active')
-                ->when($allocatedSystemServerIds->isNotEmpty(), function ($q) use ($workspaceId, $allocatedSystemServerIds, $canUseSystem) {
-                    $q->where(function ($sub) use ($workspaceId, $allocatedSystemServerIds, $canUseSystem) {
+                ->when($allocatedSystemServerIds->isNotEmpty() || $systemSmtpId > 0, function ($q) use ($workspaceId, $allocatedSystemServerIds, $canUseSystem, $systemSmtpId) {
+                    $q->where(function ($sub) use ($workspaceId, $allocatedSystemServerIds, $canUseSystem, $systemSmtpId) {
                         $sub->where('workspace_id', $workspaceId);
+                        if ($systemSmtpId > 0) {
+                            $sub->orWhere('id', $systemSmtpId);
+                        }
                         if ($canUseSystem) {
                             $sub->orWhereIn('id', $allocatedSystemServerIds->all())
                                 ->orWhereNull('workspace_id');
                         }
                     });
-                }, function ($q) use ($workspaceId, $canUseSystem) {
-                    $q->where(function ($sub) use ($workspaceId, $canUseSystem) {
+                }, function ($q) use ($workspaceId, $canUseSystem, $systemSmtpId) {
+                    $q->where(function ($sub) use ($workspaceId, $canUseSystem, $systemSmtpId) {
                         $sub->where('workspace_id', $workspaceId);
+                        if ($systemSmtpId > 0) {
+                            $sub->orWhere('id', $systemSmtpId);
+                        }
                         if ($canUseSystem) {
                             $sub->orWhereNull('workspace_id');
                         }
@@ -107,12 +122,15 @@ class DeliveryServerService
                 });
         }
 
-        if ($allocatedSystemServerIds->isNotEmpty()) {
+        if ($allocatedSystemServerIds->isNotEmpty() || $systemSmtpId > 0) {
             return DeliveryServer::query()
                 ->where('status', 'active')
-                ->where(function ($q) use ($customer, $allocatedSystemServerIds) {
+                ->where(function ($q) use ($customer, $allocatedSystemServerIds, $systemSmtpId) {
                     $q->where('customer_id', $customer->id)
                         ->orWhereIn('id', $allocatedSystemServerIds->all());
+                    if ($systemSmtpId > 0) {
+                        $q->orWhere('id', $systemSmtpId);
+                    }
                 });
         }
 
@@ -1825,9 +1843,12 @@ class DeliveryServerService
             'pause_after_send' => 0,
             'settings' => ['system_env_seeded' => true],
             'locked' => true,
-            'use_for' => false,
-            'use_for_email_to_list' => false,
-            'use_for_transactional' => false,
+            // The shared system SMTP is available to customer campaigns and
+            // transactional messages. Zero quotas mean unlimited in the
+            // quota enforcement path.
+            'use_for' => true,
+            'use_for_email_to_list' => true,
+            'use_for_transactional' => true,
         ]);
 
         try {
