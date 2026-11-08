@@ -356,11 +356,6 @@ function deliveryServerDrawer() {
             const config = this.providerDefaults[providerType];
             if (!config) return;
 
-            if ((providerType === 'gmail' || providerType === 'outlook') && !this.canUseExtendedMailboxProviders) {
-                window.dispatchEvent(new CustomEvent('open-modal', { detail: 'pro-feature-extended-mailbox-providers' }));
-                return;
-            }
-
             const selectedType = document.getElementById('selected-type');
             const selectedFlow = document.getElementById('selected-flow');
             const selectedProviderName = document.getElementById('selected-provider-name');
@@ -683,10 +678,8 @@ function deliveryServerDrawer() {
                         >
                             <option value="">Choose a provider...</option>
                             <optgroup label="Standard SMTP">
-                                @if($canUseExtendedMailboxProviders ?? false)
-                                    <option value="gmail">Gmail (SMTP with App Password)</option>
-                                    <option value="outlook">Outlook (SMTP with App Password)</option>
-                                @endif
+                                <option value="gmail">Gmail (SMTP with App Password)</option>
+                                <option value="outlook">Outlook (SMTP with App Password)</option>
                                 <option value="smtp">Other SMTP (Custom SMTP server)</option>
                             </optgroup>
                             <optgroup label="API Integrations">
@@ -1296,17 +1289,6 @@ function deliveryServerDrawer() {
         </div>
     </template>
 
-    <x-modal name="pro-feature-extended-mailbox-providers" maxWidth="md">
-        <div class="p-6">
-            <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">Extended License Feature</h2>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
-                Gmail and Outlook mailbox providers are available on the Extended License.
-            </p>
-            <div class="mt-6 flex justify-end">
-                <x-button type="button" variant="secondary" @click="$dispatch('close-modal', 'pro-feature-extended-mailbox-providers')">Close</x-button>
-            </div>
-        </div>
-    </x-modal>
 
     <x-card :padding="false">
         <div class="overflow-x-auto">

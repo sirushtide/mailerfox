@@ -31,74 +31,6 @@ class DeliveryServerController extends Controller
         protected UpdateServerService $updateServerService
     ) {}
 
-    protected function isExtendedLicenseAvailable(): bool
-    {
-        $baseUrl = (string) config('services.update_server.base_url', Setting::get('update_api_base_url'));
-        $licenseKey = Setting::get('update_license_key');
-        $licenseKey = is_string($licenseKey) ? trim($licenseKey) : '';
-
-        if ($baseUrl === '' || $licenseKey === '' || !preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i', $licenseKey)) {
-            return false;
-        }
-
-        $appUrl = (string) config('app.url');
-        $parsed = parse_url($appUrl);
-        $domain = is_array($parsed) && is_string($parsed['host'] ?? null) && trim((string) $parsed['host']) !== ''
-            ? (string) $parsed['host']
-            : $appUrl;
-
-        $cacheKey = 'update_server:license_check:' . md5((string) $baseUrl) . ':' . md5((string) $licenseKey) . ':' . md5((string) $domain);
-        $licenseCheck = Cache::get($cacheKey);
-
-        if (!is_array($licenseCheck)) {
-            $productSecret = (string) config('services.update_server.product_secret', Setting::get('update_product_secret'));
-            $productName = (string) config('services.update_server.product_name', Setting::get('update_product_name'));
-
-            if ($productSecret === '' || $productName === '') {
-                return false;
-            }
-
-            $licenseCheck = Cache::remember($cacheKey, now()->addMinutes(10), function () use ($licenseKey, $domain, $productSecret, $productName) {
-                return $this->updateServerService->licenseCheck(
-                    (string) $licenseKey,
-                    $domain,
-                    (string) $productSecret,
-                    (string) $productName
-                );
-            });
-        }
-
-        if (!is_array($licenseCheck) || !($licenseCheck['valid'] ?? false)) {
-            return false;
-        }
-
-        $payload = is_array($licenseCheck['data'] ?? null) ? $licenseCheck['data'] : [];
-        $license = [];
-
-        if (is_array($payload['data'] ?? null) && is_array($payload['data']['license'] ?? null)) {
-            $license = $payload['data']['license'];
-        } elseif (is_array($payload['license'] ?? null)) {
-            $license = $payload['license'];
-        }
-
-        $typeCandidates = array_filter([
-            is_string($license['license_type'] ?? null) ? $license['license_type'] : null,
-            is_string($payload['license_type'] ?? null) ? $payload['license_type'] : null,
-            is_string($license['type'] ?? null) ? $license['type'] : null,
-            is_string($payload['type'] ?? null) ? $payload['type'] : null,
-            is_string($license['name'] ?? null) ? $license['name'] : null,
-            is_string($payload['name'] ?? null) ? $payload['name'] : null,
-        ]);
-
-        foreach ($typeCandidates as $candidate) {
-            if (str_contains(strtolower(trim((string) $candidate)), 'extended')) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     /**
      * Display a listing of delivery servers.
      */
@@ -107,14 +39,13 @@ class DeliveryServerController extends Controller
         $filters = $request->only(['search', 'type', 'status']);
         $filters['customer_id'] = null;
         $deliveryServers = $this->deliveryServerService->getPaginated($filters);
-        $hasExtendedLicense = $this->isExtendedLicenseAvailable();
 
         $systemSmtpServer = null;
         if ($this->deliveryServerService->hasSystemSmtpConfigured()) {
             $systemSmtpServer = $this->deliveryServerService->getOrCreateSystemSmtpDeliveryServer();
         }
 
-        return view('admin.delivery-servers.index', compact('deliveryServers', 'filters', 'systemSmtpServer', 'hasExtendedLicense'));
+        return view('admin.delivery-servers.index', compact('deliveryServers', 'filters', 'systemSmtpServer'));
     }
 
     protected function authorizeSystemServer(DeliveryServer $deliveryServer): DeliveryServer
@@ -259,12 +190,6 @@ class DeliveryServerController extends Controller
         }
 
         $validated = $request->validate($rules);
-
-        if (in_array((string) ($validated['type'] ?? ''), self::EXTENDED_MAILBOX_TYPES, true) && !$this->isExtendedLicenseAvailable()) {
-            throw ValidationException::withMessages([
-                'type' => 'Extended license is required to use Gmail/Outlook mailbox providers.',
-            ]);
-        }
 
         $this->normalizeExtendedMailboxInput($validated, $request);
 
@@ -701,12 +626,6 @@ class DeliveryServerController extends Controller
             'settings.auth_method' => ['nullable', 'in:app_password,oauth'],
             'from_email_prefix' => ['nullable', 'string', 'max:255'],
         ]);
-
-        if (in_array((string) ($validated['type'] ?? ''), self::EXTENDED_MAILBOX_TYPES, true) && !$this->isExtendedLicenseAvailable()) {
-            throw ValidationException::withMessages([
-                'type' => 'Extended license is required to use Gmail/Outlook mailbox providers.',
-            ]);
-        }
 
         $this->normalizeExtendedMailboxInput($validated, $request);
 

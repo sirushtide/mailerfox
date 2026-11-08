@@ -553,8 +553,11 @@ class Customer extends Authenticatable implements MustVerifyEmail, CanResetPassw
      */
     public function groupAllows(string $path): bool
     {
+        if ($path === 'outreach.access') {
+            return true;
+        }
+
         $addonByCapability = [
-            'outreach.access' => 'cold-email-outreach',
             'scraper.permissions.can_access_scraper' => 'super-scrape',
             'sms.access' => 'sms',
             'whatsapp.access' => 'whatsapp',

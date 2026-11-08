@@ -563,12 +563,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const isExtendedMailboxType = ['gmail', 'outlook'].includes(type);
         const isSmtpType = ['smtp', 'gmail', 'outlook'].includes(type);
 
-        if (isExtendedMailboxType && !canUseExtendedMailboxProviders) {
-            typeEl.value = 'smtp';
-            alert('This is an Extended License feature. Please upgrade to use Gmail/Outlook mailbox providers.');
-            return applyDefaults(previousType);
-        }
-
         const def = getDef(type);
         const prev = previousType ? getDef(previousType) : null;
 

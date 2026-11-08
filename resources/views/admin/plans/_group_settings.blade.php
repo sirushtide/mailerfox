@@ -1,5 +1,5 @@
 @php
-    $outreachAddonActive = \App\Models\Addon::isInstalled('cold-email-outreach') && \App\Models\Addon::isActive('cold-email-outreach');
+    $outreachAddonActive = true;
     $superScrapeAddonActive = \App\Models\Addon::isActive('super-scrape');
     $workspaceAddonActive = \App\Models\Addon::isActive('workspace');
     $effectiveSettings = $settings ?? $defaultSettings ?? [];
@@ -210,8 +210,9 @@
         <button type="submit" class="rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:bg-primary-500 dark:hover:bg-primary-600">{{ __('Save') }}</button>
     </div>
     <x-settings-section>
-        <x-settings-row :title="__('Access to outreach')" :description="__('Show the Outreach section for customers in this plan and allow them to use the cold outreach addon.')">
-            <x-settings-toggle name="outreach[access]" :checked="(bool) old('outreach.access', data_get($effectiveSettings, 'outreach.access', false))" />
+        <x-settings-row :title="__('Access to outreach')" :description="__('Outreach is included for all customer plans.')">
+            <input type="hidden" name="outreach[access]" value="1">
+            <span class="text-sm text-green-700 dark:text-green-400">{{ __('Enabled for all customers') }}</span>
         </x-settings-row>
         <x-settings-row :title="__('Max outreach campaigns')" :description="__('Maximum number of outreach campaigns. Set -1 for unlimited.')">
             <input type="number" min="0" name="outreach[max_campaigns]" value="{{ old('outreach.max_campaigns', data_get($effectiveSettings, 'outreach.max_campaigns', 0)) }}" class="{{ $sectionInputClass }}">
@@ -339,7 +340,6 @@
             $ownerLabel = $server->customer ? ('Customer: ' . $server->customer->email) : 'System';
             return ['id' => (string) $server->id, 'label' => $server->name . ' (' . $ownerLabel . ')'];
         })->values()->all();
-        $showExtendedFeaturePopup = !($hasExtendedLicense ?? false);
     @endphp
 
     <x-settings-section class="mb-6">
@@ -354,15 +354,6 @@
         </div>
     </x-settings-section>
 
-    <x-modal name="pro-feature-extended-mailbox-providers-admin" maxWidth="md">
-        <div class="p-6">
-            <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ __('Pro Feature') }}</h2>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">{{ __('Gmail and Outlook mailbox providers are available as an Extended/Pro feature.') }}</p>
-            <div class="mt-6 flex justify-end">
-                <x-button type="button" variant="secondary" @click="$dispatch('close-modal', 'pro-feature-extended-mailbox-providers-admin')">{{ __('Close') }}</x-button>
-            </div>
-        </div>
-    </x-modal>
 
     <div class="space-y-6">
         <x-settings-section>
@@ -373,18 +364,7 @@
             <x-settings-row :title="__('Can add delivery servers')" :description="__('Allow customers to add their own delivery servers.')">
                 <x-settings-toggle name="servers[permissions][can_add_delivery_servers]" :checked="(bool) old('servers.permissions.can_add_delivery_servers', data_get($effectiveSettings, 'servers.permissions.can_add_delivery_servers', false))" />
             </x-settings-row>
-            <x-settings-row :title="__('Can use Gmail/Outlook mailbox providers (Extended)')" :description="__('Premium feature: lets customers connect Gmail and Outlook mailbox providers.')">
-                <div class="flex items-center justify-end gap-2">
-                    <button type="button" @click="if (@json($showExtendedFeaturePopup)) { $dispatch('open-modal', 'pro-feature-extended-mailbox-providers-admin') }" class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-amber-300 bg-amber-50 text-amber-600 transition hover:bg-amber-100 dark:border-amber-700/70 dark:bg-amber-900/25 dark:text-amber-300 dark:hover:bg-amber-900/40" title="{{ __('Pro feature') }}" aria-label="{{ __('Pro feature') }}">
-                        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 18h14l1.5-9-4.5 2.5L12 4 7.5 11.5 3 9 5 18zm0 2a1 1 0 100 2h14a1 1 0 100-2H5z" /></svg>
-                    </button>
-                    <input type="hidden" name="servers[permissions][can_use_extended_mailbox_providers]" value="0">
-                    <label class="inline-flex items-center cursor-pointer">
-                        <input type="checkbox" name="servers[permissions][can_use_extended_mailbox_providers]" value="1" {{ old('servers.permissions.can_use_extended_mailbox_providers', data_get($effectiveSettings, 'servers.permissions.can_use_extended_mailbox_providers', false)) ? 'checked' : '' }} class="sr-only peer" @change="if (@json($showExtendedFeaturePopup) && $event.target.checked) { $event.target.checked = false; $dispatch('open-modal', 'pro-feature-extended-mailbox-providers-admin') }">
-                        <div class="relative w-11 h-6 bg-gray-200 rounded-full peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary-500 dark:bg-gray-700 peer-checked:bg-primary-600 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full peer-checked:after:border-white"></div>
-                    </label>
-                </div>
-            </x-settings-row>
+            <input type="hidden" name="servers[permissions][can_use_extended_mailbox_providers]" value="1">
         <x-settings-row :title="__('Max delivery servers')" :description="__('Maximum delivery servers a customer can add. Set -1 for unlimited.')">
             <input type="number" min="-1" name="servers[limits][max_delivery_servers]" value="{{ old('servers.limits.max_delivery_servers', data_get($effectiveSettings, 'servers.limits.max_delivery_servers', -1)) }}" class="{{ $sectionInputClass }}">
             </x-settings-row>

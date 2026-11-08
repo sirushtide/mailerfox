@@ -82,16 +82,9 @@ class DeliveryServerController extends Controller
 
     protected function canUseExtendedMailboxProvidersForCustomer($customer): bool
     {
-        if (!$customer) {
-            return false;
-        }
-
-        $groupAllows = (bool) $customer->groupSetting('servers.permissions.can_use_extended_mailbox_providers', false);
-        if (!$groupAllows) {
-            return false;
-        }
-
-        return $this->isExtendedLicenseAvailable();
+        // Gmail and Outlook are available to every customer. Existing delivery
+        // server permissions still control who can manage sending servers.
+        return (bool) $customer;
     }
 
     protected function isExtendedLicenseAvailable(): bool
@@ -356,10 +349,6 @@ class DeliveryServerController extends Controller
             ->orderBy('name')
             ->get();
 
-        if (!$canUseExtendedMailboxProviders && in_array((string) $type, self::EXTENDED_MAILBOX_TYPES, true)) {
-            $type = 'smtp';
-        }
-
         return view('customer.delivery-servers.create', compact('trackingDomains', 'bounceServers', 'flow', 'type', 'canUseExtendedMailboxProviders'));
     }
 
@@ -425,12 +414,6 @@ class DeliveryServerController extends Controller
         }
 
         $validated = $request->validate($rules);
-
-        if (in_array((string) ($validated['type'] ?? ''), self::EXTENDED_MAILBOX_TYPES, true) && !$canUseExtendedMailboxProviders) {
-            throw ValidationException::withMessages([
-                'type' => 'This is an Extended License feature. Please upgrade to use Gmail/Outlook mailbox providers.',
-            ]);
-        }
 
         $apiTypes = ['amazon-ses', 'mailgun', 'sendgrid', 'postmark', 'sparkpost', 'zeptomail-api', 'resend', 'emailit'];
         if ($isApiFlow && !in_array($validated['type'], $apiTypes, true)) {
@@ -972,12 +955,6 @@ class DeliveryServerController extends Controller
             'settings.bounce_address' => ['nullable', 'email', 'max:255'],
             'from_email_prefix' => ['nullable', 'string', 'max:255'],
         ]);
-
-        if (in_array((string) ($validated['type'] ?? ''), self::EXTENDED_MAILBOX_TYPES, true) && !$canUseExtendedMailboxProviders) {
-            throw ValidationException::withMessages([
-                'type' => 'This is an Extended License feature. Please upgrade to use Gmail/Outlook mailbox providers.',
-            ]);
-        }
 
         if (array_key_exists('password', $validated)) {
             $password = $validated['password'];

@@ -102,7 +102,9 @@ class AddonController extends Controller
 
         $catalog = collect($this->catalog)->map(function ($item) use ($installed, $updateInfoBySlug) {
             $item['record'] = $installed->get($item['slug']);
-            $item['status'] = $item['record']?->status ?? 'available';
+            $item['status'] = $item['slug'] === 'cold-email-outreach'
+                ? 'bundled'
+                : ($item['record']?->status ?? 'available');
             $item['update_info'] = $updateInfoBySlug[$item['slug']] ?? null;
             return $item;
         });

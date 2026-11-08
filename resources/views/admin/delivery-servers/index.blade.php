@@ -333,17 +333,6 @@
         </div>
     </template>
 
-    <x-modal name="pro-feature-extended-mailbox-providers-admin" maxWidth="md">
-        <div class="p-6">
-            <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">Extended License Required</h2>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
-                Gmail and Outlook mailbox providers are available only with the Extended license.
-            </p>
-            <div class="mt-6 flex justify-end">
-                <x-button type="button" variant="secondary" @click="$dispatch('close-modal', 'pro-feature-extended-mailbox-providers-admin')">Close</x-button>
-            </div>
-        </div>
-    </x-modal>
 
     <!-- Servers Table -->
     <x-card :padding="false">
@@ -481,7 +470,6 @@
 @push('scripts')
 <script>
 const initAdminDeliveryServerIndex = () => {
-    const hasExtendedLicense = @json((bool) ($hasExtendedLicense ?? false));
     const form = document.getElementById('admin-delivery-server-form');
     if (!form) return;
 
@@ -625,11 +613,6 @@ const initAdminDeliveryServerIndex = () => {
                 return;
             }
 
-            if ((type === 'gmail' || type === 'outlook') && !hasExtendedLicense) {
-                window.dispatchEvent(new CustomEvent('open-modal', { detail: 'pro-feature-extended-mailbox-providers-admin' }));
-                this.value = '';
-                return;
-            }
 
             selectedType.value = type;
             selectedFlow.value = flow;

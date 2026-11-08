@@ -88,7 +88,7 @@ class UniboxController extends Controller
 
         $emailLists = EmailList::where('customer_id', $customer->id)->orderBy('name')->get(['id', 'name']);
 
-        $coldEmailActive = Addon::isActive('cold-email-outreach');
+        $coldEmailActive = true;
         $outreachCampaigns = $coldEmailActive
             ? \App\Models\OutreachCampaign::where('customer_id', $customer->id)->orderBy('name')->get(['id', 'name', 'status'])
             : collect();
@@ -553,10 +553,6 @@ class UniboxController extends Controller
     public function addContactToSequence(Request $request)
     {
         $customer = $this->customer();
-        if (!Addon::isActive('cold-email-outreach')) {
-            return response()->json(['error' => 'Cold Email Outreach addon is not active.'], 403);
-        }
-
         $request->validate([
             'email' => 'required|email',
             'campaign_id' => 'required|integer',

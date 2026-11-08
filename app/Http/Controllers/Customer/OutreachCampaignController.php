@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
-use App\Models\Addon;
 use App\Models\DeliveryServer;
 use App\Models\DeliveryServerLog;
 use App\Models\EmailList;
@@ -32,9 +31,7 @@ class OutreachCampaignController extends Controller
 
     private function guardAddon(): void
     {
-        if (! Addon::isActive('cold-email-outreach')) {
-            abort(403, 'Cold Email Outreach addon is not active.');
-        }
+        // Outreach ships as part of MailerFox core.
     }
 
     private function ownedCampaign(int $id): OutreachCampaign

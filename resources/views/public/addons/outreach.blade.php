@@ -16,7 +16,7 @@
                     <h1 class="mt-6 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">Scale personalized outbound without losing deliverability.</h1>
                     <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">Build multistep cold-email sequences, personalize every message, rotate senders intelligently, and monitor engagement — all from one focused command center.</p>
                     <div class="mt-8 flex flex-wrap gap-4">
-                        <a href="https://codecanyon.net/item/coldmail-cold-email-outreach-addons-for-mailpurse/62976476" target="_blank" class="rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-indigo-700">Get ColdMail Addons</a>
+                        <a href="{{ route('login') }}" class="rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-indigo-700">Open MailerFox</a>
                         <a href="#outreach-features" class="rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-6 py-3 text-sm font-semibold text-gray-700 dark:text-gray-200 transition hover:bg-gray-50 dark:hover:bg-gray-700">Explore Features</a>
                     </div>
                     <div class="mt-10 grid grid-cols-3 gap-6">
@@ -180,7 +180,7 @@
             <div class="mx-auto max-w-3xl text-center">
                 <span class="inline-flex rounded-full bg-amber-50 dark:bg-amber-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-amber-700 dark:text-amber-300">Use cases</span>
                 <h2 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Designed for teams that rely on outbound conversations.</h2>
-                <p class="mt-4 text-base leading-7 text-gray-600 dark:text-gray-400">Whether you are finding your first customers or managing outreach for many clients, the addon gives you a clear operating system for outbound growth.</p>
+                <p class="mt-4 text-base leading-7 text-gray-600 dark:text-gray-400">Whether you are finding your first customers or managing outreach for many clients, MailerFox gives you a clear operating system for outbound growth.</p>
             </div>
             <div class="mt-14 grid gap-6 lg:grid-cols-3">
                 <div class="rounded-2xl bg-white dark:bg-gray-900 p-7 shadow-sm ring-1 ring-gray-200 dark:ring-gray-700">
@@ -250,7 +250,7 @@
                         <svg class="h-5 w-5 shrink-0 transition" :class="active === 1 ? 'rotate-45' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
                     </button>
                     <div x-show="active === 1" x-collapse class="px-6 pb-4 text-sm leading-7 text-gray-600 dark:text-gray-400">
-                        Yes. The addon is designed around staged outbound messaging so you can build structured follow-up journeys instead of sending one-off emails.
+                        Yes. Outreach is included in MailerFox and is designed around staged outbound messaging, so you can build structured follow-up journeys instead of sending one-off emails.
                     </div>
                 </div>
                 <div class="rounded-xl border border-gray-200 dark:border-gray-700">
@@ -290,7 +290,7 @@
             <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Ready to turn outbound into a predictable growth channel?</h2>
             <p class="mt-4 text-lg leading-8 text-indigo-100">Open your Outreach workspace and start launching sequences that convert cold leads into warm conversations.</p>
             <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-                <a href="https://codecanyon.net/item/coldmail-cold-email-outreach-addons-for-mailpurse/62976476" target="_blank" class="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-indigo-700 shadow-lg transition hover:bg-indigo-50">Purchase Now ($29)</a>
+                <a href="{{ route('login') }}" class="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-indigo-700 shadow-lg transition hover:bg-indigo-50">Open MailerFox</a>
                 <a href="{{ route('login') }}" class="rounded-xl border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/20">Sign In</a>
             </div>
         </div>

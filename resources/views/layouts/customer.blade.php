@@ -1275,7 +1275,6 @@
                                         <p class="font-normal leading-[22px] relative shrink-0 text-sm tracking-[-0.48px]">{{ __('Campaigns') }}</p>
                                     </a>
 
-                                    @if(\App\Models\Addon::isActive('cold-email-outreach'))
                                         @customercan('outreach.access')
                                         <a href="{{ wsRoute('customer.outreach.index') }}" class="flex gap-2.5 items-center relative w-full shrink-0 py-1.5 px-2 {{ request()->routeIs('customer.outreach.*') ? 'text-[#1E5FEA] bg-[rgba(30,95,234,0.08)] dark:bg-[rgba(30,95,234,0.12)]' : 'text-[#1b1b20] dark:text-admin-text-primary' }} hover:bg-gray-50 dark:hover:bg-white/5 hover:text-[#1E5FEA] dark:hover:text-[#1E5FEA] transition-colors">
                                             <div class="relative shrink-0 w-[18px] h-[18px]">
@@ -1284,7 +1283,6 @@
                                             <p class="font-normal leading-[22px] relative shrink-0 text-sm tracking-[-0.48px]">{{ __('Outreach') }}</p>
                                         </a>
                                         @endcustomercan
-                                    @endif
 
                                     @if(\App\Models\Addon::isActive('whatsapp'))
                                         <a href="{{ wsRoute('customer.whatsapp.accounts.index') }}" class="flex gap-2.5 items-center relative w-full shrink-0 py-1.5 px-2 {{ request()->routeIs('customer.whatsapp.*') ? 'text-[#1E5FEA] bg-[rgba(30,95,234,0.08)] dark:bg-[rgba(30,95,234,0.12)]' : 'text-[#1b1b20] dark:text-admin-text-primary' }} hover:bg-gray-50 dark:hover:bg-white/5 hover:text-[#1E5FEA] dark:hover:text-[#1E5FEA] transition-colors">

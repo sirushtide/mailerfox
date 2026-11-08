@@ -3,7 +3,7 @@
     $inputClass = 'block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-gray-700 dark:text-gray-100 sm:text-sm';
     $toggleClass = "relative w-11 h-6 bg-gray-200 rounded-full peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary-500 dark:bg-gray-700 peer-checked:bg-primary-600 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border after:border-gray-300 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full peer-checked:after:border-white";
     $planFeatures = $plan->features ?? null;
-    $outreachAddonActive = \App\Models\Addon::isInstalled('cold-email-outreach') && \App\Models\Addon::isActive('cold-email-outreach');
+    $outreachAddonActive = true;
     $superScrapeAddonActive = \App\Models\Addon::isActive('super-scrape');
     $workspaceAddonActive = \App\Models\Addon::isActive('workspace');
     $initialPros = [];
