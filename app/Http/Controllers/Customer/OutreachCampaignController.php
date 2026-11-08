@@ -106,7 +106,7 @@ class OutreachCampaignController extends Controller
                 ->whereHas('deliveryServer', function ($q) {
                     $q->where('customer_id', auth('customer')->id());
                 })
-                ->whereRaw("CAST(json_extract(meta, '$.outreach_campaign_id') AS INTEGER) = ?", [(int) $campaign->id])
+                ->where('meta->outreach_campaign_id', (int) $campaign->id)
                 ->where('event', 'outreach_sent')
                 ->get()
                 ->groupBy('delivery_server_id')
@@ -220,7 +220,7 @@ class OutreachCampaignController extends Controller
                 ->whereHas('deliveryServer', function ($q) {
                     $q->where('customer_id', auth('customer')->id());
                 })
-                ->whereRaw("CAST(json_extract(meta, '$.outreach_campaign_id') AS INTEGER) = ?", [(int) $campaign->id])
+                ->where('meta->outreach_campaign_id', (int) $campaign->id)
                 ->latest()
                 ->limit(100)
                 ->get();
