@@ -44,6 +44,7 @@ export function createPageBuilderRuntime({ PageBuilderApp }) {
             listUrl: el.getAttribute('data-templates-list-url') || '',
             fetchUrl: el.getAttribute('data-templates-fetch-url') || '',
             productId: parseInt(el.getAttribute('data-templates-product-id') || '7', 10) || 7,
+            builder: el.getAttribute('data-gallery-builder') || '',
         };
 
         let megaMenus = [];

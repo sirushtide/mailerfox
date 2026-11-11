@@ -675,6 +675,9 @@ HTML;
         if (!in_array($builder, ['email', 'text'], true)) {
             $builder = 'email';
         }
+        if ($builder === 'email') {
+            $request->query->set('galleryBuilder', 'mailpurse');
+        }
 
         return view('customer.templates.unlayer.create', [
             'type' => $type,
@@ -1132,11 +1135,11 @@ HTML;
         }
 
         $builder = (string) $request->query('builder', 'unlayer');
-        if (!in_array($builder, ['grapesjs', 'unlayer', 'custom', 'text'], true)) {
+        if (!in_array($builder, ['grapesjs', 'unlayer', 'custom', 'text', 'mailpurse'], true)) {
             $builder = 'unlayer';
         }
 
-        $htmlBuilderMode = in_array($builder, ['grapesjs', 'custom'], true);
+        $nativeEmailBuilder = $builder === 'mailpurse';
 
         $systemTemplates = collect();
         $aiTemplates = collect();
@@ -1163,7 +1166,11 @@ HTML;
                 })
                 ->when($builder === 'unlayer', function ($q) {
                     $q->where('grapesjs_data->builder', 'unlayer');
-                }, function ($q) use ($builder, $htmlBuilderMode) {
+                }, function ($q) use ($builder, $nativeEmailBuilder) {
+                    if ($nativeEmailBuilder) {
+                        $q->where('grapesjs_data->builder', 'mailpurse');
+                        return;
+                    }
                     if ($builder === 'text') {
                         $q->where('grapesjs_data->builder', 'text');
                         return;
@@ -1201,7 +1208,11 @@ HTML;
                 ->where('settings->origin', 'ai')
                 ->when($builder === 'unlayer', function ($q) {
                     $q->where('grapesjs_data->builder', 'unlayer');
-                }, function ($q) use ($builder, $htmlBuilderMode) {
+                }, function ($q) use ($builder, $nativeEmailBuilder) {
+                    if ($nativeEmailBuilder) {
+                        $q->where('grapesjs_data->builder', 'mailpurse');
+                        return;
+                    }
                     if ($builder === 'text') {
                         $q->where('grapesjs_data->builder', 'text');
                         return;
@@ -1250,10 +1261,15 @@ HTML;
 
             $publicTemplates = PublicTemplate::query()
                 ->where('is_active', true)
+                ->when($builder === 'mailpurse', function ($q) {
+                    $q->where('builder', 'mailpurse');
+                })
                 ->when($builder === 'custom', function ($q) {
                     $q->whereIn('builder', ['grapesjs', 'custom']);
                 }, function ($q) use ($builder) {
-                    $q->where('builder', $builder);
+                    if ($builder !== 'mailpurse') {
+                        $q->where('builder', $builder);
+                    }
                 })
                 ->when($builder === 'text', function ($q) {
                     // text builder only matches text public templates
@@ -1422,6 +1438,7 @@ HTML;
             'plain_text_content' => $publicTemplate->plain_text_content,
             'builder' => $publicTemplate->builder,
             'builder_data' => $publicTemplate->builder_data,
+            'json_code' => $publicTemplate->builder_data,
         ]);
     }
 

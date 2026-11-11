@@ -1510,6 +1510,7 @@ const PAGE_TEMPLATE_TABS = [
 
 const EMAIL_TEMPLATE_TABS = [
     { key: 'templates', label: 'Templates', resourceType: 'emailtemplates' },
+    { key: 'blocks', label: 'Blocks', resourceType: 'emailblocks' },
 ];
 
 function normalizeGalleryCategories(raw) {
@@ -1585,6 +1586,7 @@ function InsertSectionModal({ open, onClose, onInsertBlank, onInsertTemplate, on
         const listBase = String(templatesApi.listUrl).replace(/\/+$/, '');
         const params = new URLSearchParams();
         params.set('per_page', '100');
+        if (templatesApi.builder) params.set('builder', templatesApi.builder);
         if (category) params.set('category', category);
 
         setLoadingByKey((s) => ({ ...s, [cacheKey]: true }));

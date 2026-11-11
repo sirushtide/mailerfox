@@ -50,6 +50,7 @@
     "aiUrl" => route('customer.templates.ai-generate'),
     "csrfToken" => csrf_token(),
     "builder" => 'unlayer',
+    "galleryBuilder" => request()->query('galleryBuilder', ''),
     "canImport" => (bool) auth('customer')->user()?->groupAllows('templates.permissions.can_import_templates'),
     "canAi" => (bool) auth('customer')->user()?->groupAllows('templates.permissions.can_use_ai_creator'),
     "initialTab" => (bool) auth('customer')->user()?->groupAllows('templates.permissions.can_use_ai_creator') && !(bool) auth('customer')->user()?->groupAllows('templates.permissions.can_import_templates') ? 'ai' : 'templates',
