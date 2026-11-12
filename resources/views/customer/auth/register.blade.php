@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app('locale.direction')->dir() }}" x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }" x-bind:class="{ 'dark': darkMode }">
 <head>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
     <link rel="icon" type="image/svg+xml" href="{{ asset('branding/mailerfox-icon-blue.svg') }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

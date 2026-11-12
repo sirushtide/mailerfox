@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="{{ app('locale.direction')->dir() }}">
 <head>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $success ? 'Unsubscribed' : 'Unsubscribe Failed' }}</title>

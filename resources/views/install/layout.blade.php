@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', (string) config('app.fallback_locale', 'en')) }}" dir="{{ app('locale.direction')->dir((string) config('app.fallback_locale', 'en')) }}">
 <head>
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
