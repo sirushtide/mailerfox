@@ -32,7 +32,7 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
 
-      - name: Sync application to server
+      - name: Upload release to server staging
         run: |
           rsync -az --delete \
             --exclude '.git' --exclude '.github' \
@@ -44,14 +44,20 @@ jobs:
             --exclude '.DS_Store' --exclude '._*' \
             --exclude 'tests' \
             -e "ssh -i ~/.ssh/deploy_key" \
-            ./ "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/mailpurse/"
+            ./ "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/tmp/mailpurse-release/"
 
       - name: Activate deployment
         run: |
           ssh -i ~/.ssh/deploy_key "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" 'bash -s' <<'REMOTE'
           set -euo pipefail
+          sudo rsync -a --delete \
+            --exclude 'vendor' --exclude 'node_modules' \
+            --exclude 'storage' --exclude 'bootstrap/cache' \
+            --exclude 'public/storage' --exclude 'public/hot' \
+            --exclude '.env' --exclude '.env.*' \
+            /tmp/mailpurse-release/ /var/www/mailpurse/
           cd /var/www/mailpurse
-          sudo chgrp -R www-data /var/www/mailpurse
+          sudo chown -R ubuntu:www-data /var/www/mailpurse
           sudo chmod -R g+r /var/www/mailpurse
           sudo chmod -R ug+rwX storage bootstrap/cache
           sudo -u www-data composer install --no-dev --optimize-autoloader --no-interaction
@@ -59,4 +65,5 @@ jobs:
           sudo -u www-data php artisan config:cache
           sudo -u www-data php artisan view:cache
           sudo -u www-data php artisan queue:restart
+          rm -rf /tmp/mailpurse-release
           REMOTE
