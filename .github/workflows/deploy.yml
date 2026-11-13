@@ -1,0 +1,62 @@
+name: Deploy to production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies and build assets
+        run: |
+          npm ci
+          npm run build
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Sync application to server
+        run: |
+          rsync -az --delete \
+            --exclude '.git' --exclude '.github' \
+            --exclude 'vendor' --exclude 'node_modules' \
+            --exclude 'storage' --exclude 'bootstrap/cache' \
+            --exclude 'public/storage' --exclude 'public/hot' \
+            --exclude '.env' --exclude '.env.*' \
+            --exclude '*.pem' --exclude '*.key' \
+            --exclude '.DS_Store' --exclude '._*' \
+            --exclude 'tests' \
+            -e "ssh -i ~/.ssh/deploy_key" \
+            ./ "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/mailpurse/"
+
+      - name: Activate deployment
+        run: |
+          ssh -i ~/.ssh/deploy_key "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}" 'bash -s' <<'REMOTE'
+          set -euo pipefail
+          cd /var/www/mailpurse
+          sudo chgrp -R www-data /var/www/mailpurse
+          sudo chmod -R g+r /var/www/mailpurse
+          sudo chmod -R ug+rwX storage bootstrap/cache
+          sudo -u www-data composer install --no-dev --optimize-autoloader --no-interaction
+          sudo -u www-data php artisan migrate --force
+          sudo -u www-data php artisan config:cache
+          sudo -u www-data php artisan view:cache
+          sudo -u www-data php artisan queue:restart
+          REMOTE

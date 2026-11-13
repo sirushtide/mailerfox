@@ -61,7 +61,7 @@ class ProcessEmailValidationBulkRunJob implements ShouldQueue
         }
 
         if ($tool->provider !== 'snapvalid') {
-            $this->failRun('Bulk validation is supported only for Snapvalid.');
+            $this->fanOutChunkJobs();
             return;
         }
 
@@ -147,30 +147,7 @@ class ProcessEmailValidationBulkRunJob implements ShouldQueue
                     'settings' => $settings,
                 ]);
 
-                $baseQuery = DB::table('list_subscribers')
-                    ->where('list_id', $this->run->list_id)
-                    ->whereNull('deleted_at')
-                    ->whereNotNull('email')
-                    ->where('email', '!=', '');
-
-                $distinctIdSubquery = (clone $baseQuery)
-                    ->selectRaw('MIN(id) as id')
-                    ->groupBy('email');
-
-                $chunkSize = 100;
-                DB::query()
-                    ->fromSub($distinctIdSubquery, 't')
-                    ->select(['id'])
-                    ->orderBy('id')
-                    ->chunkById($chunkSize, function ($rows) {
-                        $ids = collect($rows)->pluck('id')->filter()->values()->all();
-                        if (empty($ids)) {
-                            return;
-                        }
-
-                        ProcessEmailValidationChunkJob::dispatch($this->run, $ids)
-                            ->onQueue('email-validation');
-                    }, 'id');
+                $this->fanOutChunkJobs();
 
                 return;
             }
@@ -489,6 +466,40 @@ class ProcessEmailValidationBulkRunJob implements ShouldQueue
             'run_id' => $this->run->id,
             'customer_id' => $customer->id,
         ]);
+    }
+
+    /**
+     * Fans out per-chunk validation jobs over the list's distinct emails.
+     * Used as the fallback when provider bulk upload is unavailable, and as
+     * the processing path for providers without a remote bulk queue (e.g.
+     * self-hosted Reacher).
+     */
+    private function fanOutChunkJobs(): void
+    {
+        $baseQuery = DB::table('list_subscribers')
+            ->where('list_id', $this->run->list_id)
+            ->whereNull('deleted_at')
+            ->whereNotNull('email')
+            ->where('email', '!=', '');
+
+        $distinctIdSubquery = (clone $baseQuery)
+            ->selectRaw('MIN(id) as id')
+            ->groupBy('email');
+
+        $chunkSize = 100;
+        DB::query()
+            ->fromSub($distinctIdSubquery, 't')
+            ->select(['id'])
+            ->orderBy('id')
+            ->chunkById($chunkSize, function ($rows) {
+                $ids = collect($rows)->pluck('id')->filter()->values()->all();
+                if (empty($ids)) {
+                    return;
+                }
+
+                ProcessEmailValidationChunkJob::dispatch($this->run, $ids)
+                    ->onQueue('email-validation');
+            }, 'id');
     }
 
     private function isRateLimitedPayload(array $payload): bool

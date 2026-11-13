@@ -87,6 +87,22 @@ class EmailValidationToolController extends Controller
         abort(404);
     }
 
+    protected function applyProviderMeta(EmailValidationTool $tool, array $validated): void
+    {
+        $meta = (array) ($tool->meta ?? []);
+
+        if (($validated['provider'] ?? null) === 'reacher') {
+            $baseUrl = is_string($validated['base_url'] ?? null) ? trim($validated['base_url']) : '';
+            if ($baseUrl !== '') {
+                $meta['base_url'] = rtrim($baseUrl, '/');
+            } else {
+                unset($meta['base_url']);
+            }
+        }
+
+        $tool->meta = empty($meta) ? null : $meta;
+    }
+
     public function index(Request $request)
     {
         $customer = auth('customer')->user();
@@ -155,8 +171,9 @@ class EmailValidationToolController extends Controller
 
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'provider' => ['required', 'in:snapvalid'],
+            'provider' => ['required', 'in:snapvalid,reacher'],
             'api_key' => ['required', 'string'],
+            'base_url' => ['nullable', 'url', 'max:255'],
             'active' => ['nullable', 'boolean'],
         ]);
 
@@ -170,6 +187,9 @@ class EmailValidationToolController extends Controller
             'api_key' => $validated['api_key'],
             'active' => (bool) ($validated['active'] ?? true),
         ]);
+
+        $this->applyProviderMeta($tool, $validated);
+        $tool->save();
 
         return redirect()
             ->route('customer.email-validation.tools.show', $tool)
@@ -196,8 +216,9 @@ class EmailValidationToolController extends Controller
 
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'provider' => ['required', 'in:snapvalid'],
+            'provider' => ['required', 'in:snapvalid,reacher'],
             'api_key' => ['nullable', 'string'],
+            'base_url' => ['nullable', 'url', 'max:255'],
             'active' => ['nullable', 'boolean'],
         ]);
 
@@ -215,6 +236,9 @@ class EmailValidationToolController extends Controller
             $tool->api_key = $validated['api_key'];
             $tool->save();
         }
+
+        $this->applyProviderMeta($tool, $validated);
+        $tool->save();
 
         return redirect()
             ->route('customer.email-validation.tools.show', $tool)

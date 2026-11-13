@@ -22,6 +22,7 @@
                 <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('Provider') }}</label>
                 <select name="provider" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100">
                     <option value="snapvalid" {{ old('provider', $tool->provider) === 'snapvalid' ? 'selected' : '' }}>{{ __('Snapvalid') }}</option>
+                    <option value="reacher" {{ old('provider', $tool->provider) === 'reacher' ? 'selected' : '' }}>{{ __('Reacher (self-hosted)') }}</option>
                 </select>
                 @error('provider')
                     <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
@@ -45,6 +46,15 @@
                     <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                 @enderror
             </div>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('Endpoint URL') }} <span class="text-gray-400 font-normal">({{ __('Reacher only — optional') }})</span></label>
+            <input name="base_url" value="{{ old('base_url', data_get($tool->meta ?? [], 'base_url', '')) }}" placeholder="{{ config('mailpurse.email_validation.reacher_base_url') }}" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100">
+            <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">{{ __('Base URL of the emailverify web service. Leave empty to use the configured default.') }}</p>
+            @error('base_url')
+                <p class="mt-1 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
+            @enderror
         </div>
 
         <div>

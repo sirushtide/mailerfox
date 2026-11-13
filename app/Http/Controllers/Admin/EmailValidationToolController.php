@@ -60,6 +60,22 @@ class EmailValidationToolController extends Controller
         $tool->meta = empty($meta) ? null : $meta;
     }
 
+    protected function applyProviderMeta(EmailValidationTool $tool, array $validated): void
+    {
+        $meta = (array) ($tool->meta ?? []);
+
+        if (($validated['provider'] ?? null) === 'reacher') {
+            $baseUrl = is_string($validated['base_url'] ?? null) ? trim($validated['base_url']) : '';
+            if ($baseUrl !== '') {
+                $meta['base_url'] = rtrim($baseUrl, '/');
+            } else {
+                unset($meta['base_url']);
+            }
+        }
+
+        $tool->meta = empty($meta) ? null : $meta;
+    }
+
     public function create()
     {
         $customerGroups = CustomerGroup::query()->orderBy('name')->get();
@@ -71,8 +87,9 @@ class EmailValidationToolController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'provider' => ['required', 'in:snapvalid'],
+            'provider' => ['required', 'in:snapvalid,reacher'],
             'api_key' => ['required', 'string'],
+            'base_url' => ['nullable', 'url', 'max:255'],
             'active' => ['nullable', 'boolean'],
             'customer_group_ids' => ['nullable', 'array'],
             'customer_group_ids.*' => ['integer', 'exists:customer_groups,id'],
@@ -88,6 +105,7 @@ class EmailValidationToolController extends Controller
             'active' => (bool) ($validated['active'] ?? true),
         ]);
 
+        $this->applyProviderMeta($tool, $validated);
         $this->applyAllowedGroupsMeta($tool, $groupIds);
         $tool->save();
 
@@ -114,8 +132,9 @@ class EmailValidationToolController extends Controller
 
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'provider' => ['required', 'in:snapvalid'],
+            'provider' => ['required', 'in:snapvalid,reacher'],
             'api_key' => ['nullable', 'string'],
+            'base_url' => ['nullable', 'url', 'max:255'],
             'active' => ['nullable', 'boolean'],
             'customer_group_ids' => ['nullable', 'array'],
             'customer_group_ids.*' => ['integer', 'exists:customer_groups,id'],
@@ -138,6 +157,7 @@ class EmailValidationToolController extends Controller
             $tool->save();
         }
 
+        $this->applyProviderMeta($tool, $validated);
         $this->applyAllowedGroupsMeta($tool, $groupIds);
         $tool->save();
 

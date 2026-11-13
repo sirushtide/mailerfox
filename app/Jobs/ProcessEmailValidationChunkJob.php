@@ -7,6 +7,7 @@ use App\Models\EmailValidationRunItem;
 use App\Models\ListSubscriber;
 use App\Models\SuppressionList;
 use App\Models\UsageLog;
+use App\Services\EmailValidation\ReacherClient;
 use App\Services\EmailValidation\SnapvalidClient;
 use App\Services\ListSubscriberService;
 use Carbon\Carbon;
@@ -38,6 +39,7 @@ class ProcessEmailValidationChunkJob implements ShouldQueue
 
     public function handle(
         SnapvalidClient $snapvalidClient,
+        ReacherClient $reacherClient,
         ListSubscriberService $subscriberService
     ): void {
         $this->run->refresh();
@@ -186,6 +188,10 @@ class ProcessEmailValidationChunkJob implements ShouldQueue
                     try {
                         if ($tool->provider === 'snapvalid') {
                             $verification = $snapvalidClient->verify((string) $tool->api_key, $email);
+                        } elseif ($tool->provider === 'reacher') {
+                            $baseUrl = (string) (data_get($tool->meta ?? [], 'base_url')
+                                ?: config('mailpurse.email_validation.reacher_base_url'));
+                            $verification = $reacherClient->verify($baseUrl, (string) $tool->api_key, $email);
                         } else {
                             $verification = [
                                 'success' => false,

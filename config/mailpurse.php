@@ -69,6 +69,8 @@ return [
     ],
     'email_validation' => [
         'snapvalid_429_delay_seconds' => (int) env('SNAPVALID_429_DELAY_SECONDS', 10),
+        'reacher_base_url' => env('REACHER_VERIFY_URL', 'http://127.0.0.1:3100'),
+        'reacher_timeout_seconds' => (int) env('REACHER_VERIFY_TIMEOUT_SECONDS', 35),
     ],
     'reply_tracking' => [
         'enabled' => (bool) env('REPLY_TRACKING_ENABLED', false),
