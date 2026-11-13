@@ -33,7 +33,7 @@
               "type": "rich_text",
               "name": "Text",
               "props": {
-                "html": "<p style=\"margin:0\"><a href=\"https://www.gorealo.com/\"><img src=\"https://app.gorealo.org/email-template-previews/gorealo/gorealo-logo.png\" alt=\"GoRealo\" width=\"154\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a></p><p style=\"margin:10px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p>",
+                "html": "<p style=\"margin:0\"><a href=\"https://www.gorealo.com/\"><img src=\"https://app.gorealo.org/email-template-previews/gorealo/assets/gorealo-logo.png\" alt=\"GoRealo\" width=\"154\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a></p><p style=\"margin:10px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p>",
                 "align": "left"
               }
             }
