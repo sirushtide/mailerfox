@@ -1,0 +1,285 @@
+{
+  "builder": "mailpurse",
+  "version": 1,
+  "meta": {
+    "name": "GoRealo — Realtor outreach (lower rates + app)"
+  },
+  "style": {},
+  "customCss": "",
+  "sections": [
+    {
+      "id": "s-brand",
+      "name": "GoRealo brand",
+      "style": {
+        "backgroundType": "color",
+        "backgroundColor": "#ffffff",
+        "paddingY": 22,
+        "gap": 12,
+        "maxWidthType": "full",
+        "innerMaxWidth": 536
+      },
+      "columns": [
+        {
+          "id": "c-brand",
+          "name": "Content",
+          "spans": {
+            "base": 12,
+            "md": 12,
+            "lg": 12
+          },
+          "widgets": [
+            {
+              "id": "w-brand",
+              "type": "rich_text",
+              "name": "Text",
+              "props": {
+                "html": "<p style=\"margin:0\"><a href=\"https://www.gorealo.com/\"><img src=\"https://app.gorealo.org/email-template-previews/gorealo/gorealo-logo.png\" alt=\"GoRealo\" width=\"154\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a></p><p style=\"margin:10px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p>",
+                "align": "left"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-intro",
+      "name": "Campaign introduction",
+      "style": {
+        "backgroundType": "color",
+        "backgroundColor": "#f0f5ff",
+        "paddingY": 22,
+        "gap": 12,
+        "maxWidthType": "full",
+        "innerMaxWidth": 536
+      },
+      "columns": [
+        {
+          "id": "c-intro",
+          "name": "Content",
+          "spans": {
+            "base": 12,
+            "md": 12,
+            "lg": 12
+          },
+          "widgets": [
+            {
+              "id": "w-eyebrow",
+              "type": "rich_text",
+              "name": "Text",
+              "props": {
+                "html": "<p style=\"margin:0 0 12px;color:#003FDA;font-size:11px;font-weight:bold;letter-spacing:2px\">FOR NORTHEAST FLORIDA REALTORS</p>",
+                "align": "left"
+              }
+            },
+            {
+              "id": "h-main",
+              "type": "heading",
+              "name": "Heading",
+              "props": {
+                "text": "Lower rates. Instant prequals. Stronger offers.",
+                "level": 1,
+                "align": "left",
+                "color": "#162849",
+                "fontSize": 22
+              }
+            },
+            {
+              "id": "w-body",
+              "type": "rich_text",
+              "name": "Text",
+              "props": {
+                "html": "<p style=\"font-size:16px;line-height:1.7;color:#374151\">Hi {{first_name}},</p><p style=\"font-size:16px;line-height:1.7;color:#374151\">In this rate environment, a full percentage point can be the difference between a buyer who can write a strong offer and one who can&rsquo;t.</p><p style=\"font-size:16px;line-height:1.7;color:#374151\">Our rates currently average <strong>1&ndash;1.5% lower</strong> than most competitors &mdash; <strong>with the same closing costs</strong>. A 1% lower rate typically creates roughly <strong>40% more eligible buyers</strong> (stronger purchasing power + better DTI qualification).</p><p style=\"font-size:16px;line-height:1.7;color:#374151\">We&rsquo;ve been helping Northeast Florida buyers and agents since <strong>1998</strong>.</p>",
+                "align": "left"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-rates",
+      "name": "Live rate snapshot",
+      "style": {
+        "backgroundType": "color",
+        "backgroundColor": "#ffffff",
+        "paddingY": 22,
+        "gap": 12,
+        "maxWidthType": "full",
+        "innerMaxWidth": 536
+      },
+      "columns": [
+        {
+          "id": "c-rates",
+          "name": "Content",
+          "spans": {
+            "base": 12,
+            "md": 12,
+            "lg": 12
+          },
+          "widgets": [
+            {
+              "id": "h-rates",
+              "type": "heading",
+              "name": "Heading",
+              "props": {
+                "text": "Here&rsquo;s today&rsquo;s live rate snapshot",
+                "level": 2,
+                "align": "left",
+                "color": "#162849",
+                "fontSize": 18
+              }
+            },
+            {
+              "id": "w-rate-table",
+              "type": "rich_text",
+              "name": "Rate table",
+              "props": {
+                "html": "<table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"border:1px solid #e5eaf1;border-radius:8px;overflow:hidden\"><tr style=\"background:#f4f6f9\"><td style=\"padding:10px 16px;font-size:12px;font-weight:bold;color:#667085;text-transform:uppercase;letter-spacing:1px\">Loan Type</td><td style=\"padding:10px 16px;font-size:12px;font-weight:bold;color:#667085;text-transform:uppercase;letter-spacing:1px\">Interest Rate</td><td style=\"padding:10px 16px;font-size:12px;font-weight:bold;color:#667085;text-transform:uppercase;letter-spacing:1px\">APR</td></tr><tr style=\"background:#f0fdf4\"><td style=\"padding:12px 16px;font-size:15px;color:#162849;border-bottom:1px solid #e5eaf1\">FHA <span style=\"display:inline-block;background:#0BFF56;color:#162849;font-size:10px;font-weight:bold;padding:2px 6px;border-radius:3px;vertical-align:middle\">BEST</span></td><td style=\"padding:12px 16px;font-size:15px;font-weight:bold;color:#15803d;border-bottom:1px solid #e5eaf1\">5.990%</td><td style=\"padding:12px 16px;font-size:15px;font-weight:bold;color:#003FDA;border-bottom:1px solid #e5eaf1\">6.714%</td></tr><tr style=\"background:#f0fdf4\"><td style=\"padding:12px 16px;font-size:15px;color:#162849;border-bottom:1px solid #e5eaf1\">VA <span style=\"display:inline-block;background:#0BFF56;color:#162849;font-size:10px;font-weight:bold;padding:2px 6px;border-radius:3px;vertical-align:middle\">BEST</span></td><td style=\"padding:12px 16px;font-size:15px;font-weight:bold;color:#15803d;border-bottom:1px solid #e5eaf1\">5.990%</td><td style=\"padding:12px 16px;font-size:15px;font-weight:bold;color:#003FDA;border-bottom:1px solid #e5eaf1\">6.405%</td></tr><tr><td style=\"padding:12px 16px;font-size:15px;color:#162849;border-bottom:1px solid #e5eaf1\">USDA</td><td style=\"padding:12px 16px;font-size:15px;font-weight:bold;color:#15803d;border-bottom:1px solid #e5eaf1\">6.125%</td><td style=\"padding:12px 16px;font-size:15px;font-weight:bold;color:#003FDA;border-bottom:1px solid #e5eaf1\">7.011%</td></tr><tr><td style=\"padding:12px 16px;font-size:15px;color:#162849;border-bottom:1px solid #e5eaf1\">Conventional</td><td style=\"padding:12px 16px;font-size:15px;font-weight:bold;color:#15803d;border-bottom:1px solid #e5eaf1\">6.750%</td><td style=\"padding:12px 16px;font-size:15px;font-weight:bold;color:#003FDA;border-bottom:1px solid #e5eaf1\">7.050%</td></tr><tr><td style=\"padding:12px 16px;font-size:15px;color:#162849;border-bottom:1px solid #e5eaf1\">Jumbo</td><td style=\"padding:12px 16px;font-size:15px;font-weight:bold;color:#15803d;border-bottom:1px solid #e5eaf1\">6.875%</td><td style=\"padding:12px 16px;font-size:15px;font-weight:bold;color:#003FDA;border-bottom:1px solid #e5eaf1\">7.160%</td></tr></table><p style=\"font-size:11px;line-height:1.6;color:#98a2b3;margin:10px 0 0\">Mortgage interest rates shown are based on a 780 credit score with 20% down payment or equity. FHA, VA, and USDA rates may vary slightly for different credit profiles. Last updated Nov 13, 2026.</p>",
+                "align": "left"
+              }
+            },
+            {
+              "id": "w-rate-note",
+              "type": "rich_text",
+              "name": "Text",
+              "props": {
+                "html": "<p style=\"font-size:15px;line-height:1.75;color:#374151\">These are our current 30-year purchase rates (as of Nov 13, 2026) &mdash; starting at <strong style=\"color:#15803d\">5.990%</strong>.</p>",
+                "align": "left"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-app",
+      "name": "Realtor app",
+      "style": {
+        "backgroundType": "color",
+        "backgroundColor": "#f0f5ff",
+        "paddingY": 22,
+        "gap": 12,
+        "maxWidthType": "full",
+        "innerMaxWidth": 536
+      },
+      "columns": [
+        {
+          "id": "c-app",
+          "name": "Content",
+          "spans": {
+            "base": 12,
+            "md": 12,
+            "lg": 12
+          },
+          "widgets": [
+            {
+              "id": "h-app",
+              "type": "heading",
+              "name": "Heading",
+              "props": {
+                "text": "Want to make it even easier?",
+                "level": 2,
+                "align": "left",
+                "color": "#162849",
+                "fontSize": 18
+              }
+            },
+            {
+              "id": "w-app-body",
+              "type": "rich_text",
+              "name": "Text",
+              "props": {
+                "html": "<p style=\"font-size:15px;line-height:1.75;color:#374151\">Download our free realtor app for <strong>instant prequalifications</strong> with real rates, accurate closing costs, and cash-to-close estimates you can share with buyers on the spot.</p>",
+                "align": "left"
+              }
+            },
+            {
+              "id": "cta-app",
+              "type": "button",
+              "name": "Primary CTA",
+              "props": {
+                "text": "Get the free realtor app link",
+                "url": "mailto:jim@gorealo.com?subject=Realtor%20app%20link",
+                "align": "left",
+                "backgroundColor": "#003FDA",
+                "textColor": "#ffffff",
+                "size": "md",
+                "paddingX": 24,
+                "paddingY": 14,
+                "borderRadius": "4px"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-sign",
+      "name": "Signature",
+      "style": {
+        "backgroundType": "color",
+        "backgroundColor": "#ffffff",
+        "paddingY": 22,
+        "gap": 12,
+        "maxWidthType": "full",
+        "innerMaxWidth": 536
+      },
+      "columns": [
+        {
+          "id": "c-sign",
+          "name": "Content",
+          "spans": {
+            "base": 12,
+            "md": 12,
+            "lg": 12
+          },
+          "widgets": [
+            {
+              "id": "w-sign",
+              "type": "rich_text",
+              "name": "Text",
+              "props": {
+                "html": "<p style=\"font-size:15px;line-height:1.75;color:#374151\">Just reply or text me if you&rsquo;d like the app link, a quick rate quote, or help with a specific buyer. Happy to make the process simple for you and your clients.</p><p style=\"font-size:15px;line-height:1.75;color:#162849;margin:22px 0 0\"><strong>Jim Hammond</strong><br>Senior Loan Originator | NMLS 190210<br>EquiFund Mortgage / GoRealo<br><a href=\"mailto:jim@gorealo.com\" style=\"color:#003FDA\">jim@gorealo.com</a><br><a href=\"https://www.gorealo.com\" style=\"color:#003FDA\">www.gorealo.com</a> | <a href=\"https://www.equifundmortgage.com\" style=\"color:#003FDA\">www.equifundmortgage.com</a></p>",
+                "align": "left"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s-footer",
+      "name": "Compliance footer",
+      "style": {
+        "backgroundType": "color",
+        "backgroundColor": "#f4f6f9",
+        "paddingY": 22,
+        "gap": 12,
+        "maxWidthType": "full",
+        "innerMaxWidth": 536
+      },
+      "columns": [
+        {
+          "id": "c-footer",
+          "name": "Content",
+          "spans": {
+            "base": 12,
+            "md": 12,
+            "lg": 12
+          },
+          "widgets": [
+            {
+              "id": "w-footer",
+              "type": "rich_text",
+              "name": "Text",
+              "props": {
+                "html": "<p style=\"font-size:11px;line-height:1.7;color:#667085\">GoRealo&reg; is a DBA of Consumer Credit Services, LLC. NMLS #1070755 &middot; Florida Mortgage Broker License #MBR1434.<br>5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256.<br>Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply.</p><p style=\"font-size:11px;line-height:1.7;color:#667085\"><a href=\"https://www.gorealo.com/privacy-policy/\" style=\"color:#003FDA\">Privacy</a> &middot; <a href=\"{{unsubscribe_url}}\" style=\"color:#003FDA\">Unsubscribe</a></p>",
+                "align": "left"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
