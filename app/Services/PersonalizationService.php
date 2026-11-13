@@ -162,7 +162,7 @@ class PersonalizationService
             return $content;
         }
 
-        $pattern = '/(?<![a-zA-Z0-9_])(' . implode('|', array_map('preg_quote', $availableKeys)) . ')(?![a-zA-Z0-9_])/i';
+        $pattern = '/(?<![a-zA-Z0-9_\/-])(' . implode('|', array_map('preg_quote', $availableKeys)) . ')(?![a-zA-Z0-9_\/-])/i';
 
         return (string) preg_replace_callback($pattern, function ($match) use ($values) {
             $key = strtolower((string) ($match[1] ?? ''));
