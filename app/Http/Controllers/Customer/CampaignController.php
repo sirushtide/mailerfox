@@ -1307,8 +1307,12 @@ class CampaignController extends Controller
 
         $topEngagers = $campaign->recipients()
             ->withCount([
-                'logs as total_opens' => fn ($q) => $q->where('event', 'opened'),
-                'logs as total_clicks' => fn ($q) => $q->where('event', 'clicked'),
+                'logs as total_opens' => fn ($q) => $q->where('event', 'opened')->where(function ($q2) {
+                    $q2->whereNull('meta->bot')->orWhere('meta->bot', false);
+                }),
+                'logs as total_clicks' => fn ($q) => $q->where('event', 'clicked')->where(function ($q2) {
+                    $q2->whereNull('meta->bot')->orWhere('meta->bot', false);
+                }),
             ])
             ->withMax('logs as last_activity_at', 'created_at')
             ->where(function ($q) {

@@ -14,6 +14,32 @@ use Illuminate\Support\Facades\Log;
 class TrackingController extends Controller
 {
     /**
+     * Detect machine-generated tracking events (mail security gateways,
+     * URL scanners, image proxy prefetches) so they don't inflate stats
+     * or fire engagement automations.
+     */
+    protected function isMachineEvent(Request $request, CampaignRecipient $recipient): bool
+    {
+        $ua = strtolower(trim((string) $request->userAgent()));
+
+        if ($ua === '') {
+            return true;
+        }
+
+        if (preg_match('/bot|crawler|spider|slurp|proofpoint|barracuda|mimecast|messagelabs|sophos|trendmicro|forcepoint|scanurl|urlscan|python-requests|curl\/|wget\/|headless|phantom/i', $ua)) {
+            return true;
+        }
+
+        // Gateway scanners fetch the pixel and hit links within seconds of
+        // delivery — real human opens this fast are rare enough on cold sends.
+        if ($recipient->sent_at && $recipient->sent_at->gt(now()->subSeconds(90))) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * Track email open.
      */
     public function trackOpen(Request $request, string $uuid): Response
@@ -22,6 +48,23 @@ class TrackingController extends Controller
             $recipient = CampaignRecipient::where('uuid', $uuid)->firstOrFail();
             $campaign = $recipient->campaign;
             $campaign->refresh();
+
+            if ($this->isMachineEvent($request, $recipient)) {
+                CampaignLog::logEvent(
+                    $campaign->id,
+                    'opened',
+                    $recipient->id,
+                    ['email' => $recipient->email, 'bot' => true],
+                    $request->ip(),
+                    $request->userAgent()
+                );
+
+                $pixel = base64_decode('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
+
+                return response($pixel, 200)
+                    ->header('Content-Type', 'image/gif')
+                    ->header('Cache-Control', 'no-cache, no-store, must-revalidate');
+            }
 
             // Respect campaign open tracking setting
             if ($campaign->track_opens && !$recipient->isOpened()) {
@@ -103,8 +146,20 @@ class TrackingController extends Controller
                 return redirect($fallback);
             }
 
+            if ($campaign->track_clicks && $this->isMachineEvent($request, $recipient)) {
+                CampaignLog::logEvent(
+                    $campaign->id,
+                    'clicked',
+                    $recipient->id,
+                    ['email' => $recipient->email, 'bot' => true],
+                    $request->ip(),
+                    $request->userAgent(),
+                    $originalUrl
+                );
+            }
+
             // Respect campaign click tracking setting
-            if ($campaign->track_clicks) {
+            if ($campaign->track_clicks && !$this->isMachineEvent($request, $recipient)) {
                 $wasOpened = $recipient->isOpened();
                 $wasClicked = $recipient->isClicked();
 
