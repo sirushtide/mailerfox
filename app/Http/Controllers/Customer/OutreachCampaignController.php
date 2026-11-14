@@ -553,7 +553,7 @@ class OutreachCampaignController extends Controller
                 return back()->withErrors(['import_source' => __('Invalid selection type.')]);
             }
 
-            $subscriberQuery->select(['email', 'first_name', 'last_name', 'company', 'custom_fields'])
+            $subscriberQuery->select(['email', 'first_name', 'last_name', 'custom_fields'])
                 ->chunk(500, function ($chunk) use (&$rows, $campaign) {
                     foreach ($chunk as $sub) {
                         $email = trim((string) $sub->email);
@@ -566,7 +566,7 @@ class OutreachCampaignController extends Controller
                             'email' => strtolower($email),
                             'first_name' => (string) ($sub->first_name ?? ''),
                             'last_name' => (string) ($sub->last_name ?? ''),
-                            'company' => (string) ($sub->company ?? ''),
+                            'company' => (string) ($sub->custom_fields['company'] ?? $sub->custom_fields['organization'] ?? ''),
                             'meta' => $this->leadMetaFromSubscriber($sub, $campaign),
                             'status' => 'pending',
                             'current_step' => 0,
