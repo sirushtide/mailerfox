@@ -7,7 +7,7 @@ import hashlib
 
 ROOT = Path(__file__).resolve().parent
 BASE = 'https://www.gorealo.com'
-LOGO = 'https://app.gorealo.org/email-template-previews/gorealo/assets/gorealo-logo.png'
+LOGO = 'https://pemcerts.s3.us-east-1.amazonaws.com/gorealo-logo-lightmode.png'
 PREVIEW_BASE = '/email-template-previews/gorealo'
 ASSET_BASE = 'https://app.gorealo.org/email-template-previews/gorealo/assets/'
 FOOTER = ('GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · '
