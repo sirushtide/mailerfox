@@ -235,7 +235,6 @@
         }
         .customer-theme main .overflow-x-auto:has(> table) {
             border-radius: var(--dashboard-border-radius) !important;
-            overflow: hidden !important;
         }
         .customer-theme main [class~="bg-admin-sidebar"][class~="shadow-sm"][class~="border"][class~="border-admin-border"] {
             border-radius: var(--dashboard-border-radius) !important;
