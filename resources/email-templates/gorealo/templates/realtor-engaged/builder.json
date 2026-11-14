@@ -228,35 +228,12 @@
        }
       },
       {
-       "id": "cta-app-store",
-       "type": "button",
-       "name": "App Store CTA",
+       "id": "w-app-badges",
+       "type": "rich_text",
+       "name": "App badges",
        "props": {
-        "text": "Download on the App Store",
-        "url": "https://apps.apple.com/us/app/gorealo/id6753648823",
-        "align": "left",
-        "backgroundColor": "#111827",
-        "textColor": "#ffffff",
-        "size": "md",
-        "paddingX": 24,
-        "paddingY": 14,
-        "borderRadius": "4px"
-       }
-      },
-      {
-       "id": "cta-google-play",
-       "type": "button",
-       "name": "Google Play CTA",
-       "props": {
-        "text": "Get it on Google Play",
-        "url": "https://play.google.com/store/apps/details?id=com.gorealo",
-        "align": "left",
-        "backgroundColor": "#003FDA",
-        "textColor": "#ffffff",
-        "size": "md",
-        "paddingX": 24,
-        "paddingY": 14,
-        "borderRadius": "4px"
+        "html": "<p style=\"margin:0\"><a href=\"https://apps.apple.com/us/app/gorealo/id6753648823\" style=\"text-decoration:none\"><img src=\"https://app.gorealo.org/email-template-previews/gorealo/assets/badge-appstore.png\" alt=\"Download on the App Store\" width=\"150\" style=\"display:inline-block;width:150px;height:auto;border:0;border-radius:6px;vertical-align:middle\"></a>&nbsp;&nbsp;<a href=\"https://play.google.com/store/apps/details?id=com.gorealo\" style=\"text-decoration:none\"><img src=\"https://app.gorealo.org/email-template-previews/gorealo/assets/badge-play.png\" alt=\"Get it on Google Play\" width=\"150\" style=\"display:inline-block;width:150px;height:auto;border:0;border-radius:6px;vertical-align:middle\"></a></p>",
+        "align": "left"
        }
       }
      ]

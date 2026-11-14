@@ -18,7 +18,11 @@ class PersonalizationService
             'email' => (string) $subscriber->email,
             'full_name' => $fullName,
             'name' => $fullName,
-            'unsubscribe_url' => '',
+            'unsubscribe_url' => route('public.unsubscribe', [
+                'list' => $subscriber->list_id,
+                'email' => $subscriber->email,
+                'token' => hash('sha256', $subscriber->email . $subscriber->list_id . config('app.key')),
+            ]),
         ];
 
         $replacements = [
@@ -63,7 +67,9 @@ class PersonalizationService
             'email' => (string) $recipient->email,
             'full_name' => $fullName,
             'name' => $fullName,
-            'unsubscribe_url' => '',
+            'unsubscribe_url' => !empty($recipient->uuid)
+                ? route('unsubscribe', ['uuid' => $recipient->uuid])
+                : '',
         ];
 
         $replacements = [
