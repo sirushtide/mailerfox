@@ -552,7 +552,62 @@ class PublicSubscriptionController extends Controller
     /**
      * Unsubscribe from a list.
      */
-    public function unsubscribe(EmailList $list, string $email, string $token)
+    public const UNSUBSCRIBE_REASONS = [
+        'too_many' => 'I receive too many emails',
+        'not_relevant' => 'The content is not relevant to me',
+        'didnt_signup' => 'I never signed up for this',
+        'other' => 'Other reason',
+    ];
+
+    /**
+     * Show the unsubscribe confirmation form with reason selection.
+     */
+    public function showUnsubscribe(EmailList $list, string $email, string $token)
+    {
+        $decodedEmail = urldecode($email);
+
+        $expectedToken = hash('sha256', $email . $list->id . config('app.key'));
+        $expectedTokenDecoded = $decodedEmail !== $email
+            ? hash('sha256', $decodedEmail . $list->id . config('app.key'))
+            : $expectedToken;
+
+        if (!hash_equals($expectedToken, $token) && !hash_equals($expectedTokenDecoded, $token)) {
+            return view('public.unsubscribe', [
+                'success' => false,
+                'message' => 'Invalid unsubscribe link.'
+            ]);
+        }
+
+        $subscriber = ListSubscriber::where('list_id', $list->id)
+            ->where('email', $decodedEmail)
+            ->first();
+
+        if (!$subscriber) {
+            return view('public.unsubscribe', [
+                'success' => false,
+                'message' => 'Subscriber not found.'
+            ]);
+        }
+
+        if ($subscriber->status === 'unsubscribed') {
+            return view('public.unsubscribe', [
+                'success' => true,
+                'message' => 'You are already unsubscribed.',
+                'list' => $list,
+            ]);
+        }
+
+        return view('public.unsubscribe-form', [
+            'list' => $list,
+            'email' => $decodedEmail,
+            'reasons' => self::UNSUBSCRIBE_REASONS,
+        ]);
+    }
+
+    /**
+     * Process the unsubscribe confirmation with an optional reason.
+     */
+    public function unsubscribe(Request $request, EmailList $list, string $email, string $token)
     {
         $decodedEmail = urldecode($email);
 
@@ -580,8 +635,23 @@ class PublicSubscriptionController extends Controller
             ]);
         }
 
-        // Unsubscribe
-        app(ListSubscriberService::class)->unsubscribe($subscriber);
+        $validated = $request->validate([
+            'reason' => ['nullable', 'string', 'in:' . implode(',', array_keys(self::UNSUBSCRIBE_REASONS))],
+            'feedback' => ['nullable', 'string', 'max:1000'],
+        ]);
+
+        if ($subscriber->status !== 'unsubscribed') {
+            $customFields = is_array($subscriber->custom_fields) ? $subscriber->custom_fields : [];
+            $customFields['unsubscribe_reason'] = $validated['reason'] ?? 'not_provided';
+            if (!empty($validated['feedback'])) {
+                $customFields['unsubscribe_feedback'] = $validated['feedback'];
+            }
+            $subscriber->custom_fields = $customFields;
+            $subscriber->save();
+
+            // Unsubscribe
+            app(ListSubscriberService::class)->unsubscribe($subscriber);
+        }
 
         // Notify list owner about unsubscribe
         if ($list->customer) {
@@ -603,38 +673,77 @@ class PublicSubscriptionController extends Controller
     /**
      * Unsubscribe from campaign using UUID.
      */
-    public function unsubscribeByUuid(string $uuid)
+    /**
+     * Show the unsubscribe confirmation form (UUID-based campaign links).
+     */
+    public function showUnsubscribeByUuid(string $uuid)
     {
         try {
-            $recipient = CampaignRecipient::query()
-                ->where('uuid', $uuid)
-                ->first();
+            [$recipient, $campaign, $subscriber] = $this->resolveUuidUnsubscribe($uuid);
 
-            if (!$recipient) {
+            if (!$recipient || !$campaign) {
                 return view('public.unsubscribe', [
                     'success' => false,
                     'message' => 'Invalid or expired unsubscribe link.',
                 ]);
             }
 
-            $campaign = Campaign::withTrashed()->find($recipient->campaign_id);
+            if ($subscriber && $subscriber->status === 'unsubscribed') {
+                return view('public.unsubscribe', [
+                    'success' => true,
+                    'message' => 'You are already unsubscribed.',
+                    'list' => $campaign->emailList,
+                ]);
+            }
 
-            if (!$campaign) {
+            return view('public.unsubscribe-form', [
+                'list' => $campaign->emailList,
+                'email' => $recipient->email,
+                'reasons' => self::UNSUBSCRIBE_REASONS,
+                'uuid' => $uuid,
+            ]);
+        } catch (\Throwable $e) {
+            Log::error('Campaign unsubscribe form failed', [
+                'uuid' => $uuid,
+                'error' => $e->getMessage(),
+            ]);
+
+            return view('public.unsubscribe', [
+                'success' => false,
+                'message' => 'Unable to process unsubscribe request.',
+            ]);
+        }
+    }
+
+    /**
+     * Process the unsubscribe confirmation (UUID-based campaign links).
+     */
+    public function unsubscribeByUuid(Request $request, string $uuid)
+    {
+        try {
+            [$recipient, $campaign, $subscriber] = $this->resolveUuidUnsubscribe($uuid);
+
+            if (!$recipient || !$campaign) {
                 return view('public.unsubscribe', [
                     'success' => false,
                     'message' => 'Invalid or expired unsubscribe link.',
                 ]);
             }
 
-            $subscriber = null;
-            if (!empty($campaign->list_id) && !empty($recipient->email)) {
-                $subscriber = ListSubscriber::query()
-                    ->where('list_id', $campaign->list_id)
-                    ->where('email', $recipient->email)
-                    ->first();
-            }
+            $validated = $request->validate([
+                'reason' => ['nullable', 'string', 'in:' . implode(',', array_keys(self::UNSUBSCRIBE_REASONS))],
+                'feedback' => ['nullable', 'string', 'max:1000'],
+            ]);
 
-            if ($subscriber) {
+            if ($subscriber && $subscriber->status !== 'unsubscribed') {
+                $customFields = is_array($subscriber->custom_fields) ? $subscriber->custom_fields : [];
+                $customFields['unsubscribe_reason'] = $validated['reason'] ?? 'not_provided';
+                if (!empty($validated['feedback'])) {
+                    $customFields['unsubscribe_feedback'] = $validated['feedback'];
+                }
+                $subscriber->custom_fields = $customFields;
+                $subscriber->save();
+
                 app(ListSubscriberService::class)->unsubscribe($subscriber);
 
                 $listForNotification = $subscriber->emailList;
@@ -669,6 +778,34 @@ class PublicSubscriptionController extends Controller
                 'message' => 'Unable to process unsubscribe request.',
             ]);
         }
+    }
+
+    /**
+     * Resolve a campaign recipient, campaign and list subscriber from an unsubscribe UUID.
+     *
+     * @return array{0: ?CampaignRecipient, 1: ?Campaign, 2: ?ListSubscriber}
+     */
+    private function resolveUuidUnsubscribe(string $uuid): array
+    {
+        $recipient = CampaignRecipient::query()->where('uuid', $uuid)->first();
+        if (!$recipient) {
+            return [null, null, null];
+        }
+
+        $campaign = Campaign::withTrashed()->find($recipient->campaign_id);
+        if (!$campaign) {
+            return [$recipient, null, null];
+        }
+
+        $subscriber = null;
+        if (!empty($campaign->list_id) && !empty($recipient->email)) {
+            $subscriber = ListSubscriber::query()
+                ->where('list_id', $campaign->list_id)
+                ->where('email', $recipient->email)
+                ->first();
+        }
+
+        return [$recipient, $campaign, $subscriber];
     }
 }
 

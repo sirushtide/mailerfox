@@ -2001,7 +2001,8 @@ Route::post('/subscribe/{slug}/api', [\App\Http\Controllers\PublicSubscriptionCo
 
 // Public Subscription Actions
 Route::get('/subscribe/confirm/{token}', [\App\Http\Controllers\PublicSubscriptionController::class, 'confirm'])->name('public.subscribe.confirm');
-Route::get('/unsubscribe/{list}/{email}/{token}', [\App\Http\Controllers\PublicSubscriptionController::class, 'unsubscribe'])->name('public.unsubscribe');
+Route::get('/unsubscribe/{list}/{email}/{token}', [\App\Http\Controllers\PublicSubscriptionController::class, 'showUnsubscribe'])->name('public.unsubscribe');
+Route::post('/unsubscribe/{list}/{email}/{token}', [\App\Http\Controllers\PublicSubscriptionController::class, 'unsubscribe'])->name('public.unsubscribe.confirm');
 
 // Legacy Campaign Tracking Routes (Public) - kept for backward compatibility
 Route::get('/track/open/{uuid}', [\App\Http\Controllers\TrackingController::class, 'trackOpen'])->name('track.open.legacy');
@@ -2021,7 +2022,8 @@ Route::post('/outreach/unsubscribe/{uuid}', [\App\Http\Controllers\Public\Outrea
 // New hash-based tracking routes
 Route::get('/t/open/{campaign}/{subscriber}', [\App\Http\Controllers\Tracking\V2TrackingController::class, 'open'])->name('track.open');
 Route::get('/t/click/{campaign}/{subscriber}', [\App\Http\Controllers\Tracking\V2TrackingController::class, 'click'])->name('track.click');
-Route::get('/unsubscribe/{uuid}', [\App\Http\Controllers\PublicSubscriptionController::class, 'unsubscribeByUuid'])->name('unsubscribe');
+Route::get('/unsubscribe/{uuid}', [\App\Http\Controllers\PublicSubscriptionController::class, 'showUnsubscribeByUuid'])->name('unsubscribe');
+Route::post('/unsubscribe/{uuid}', [\App\Http\Controllers\PublicSubscriptionController::class, 'unsubscribeByUuid'])->name('unsubscribe.confirm');
 
 Route::post('/ses/sns', [\App\Http\Controllers\Webhook\SesWebhookController::class, 'handle'])
     ->name('ses.sns')
