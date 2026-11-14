@@ -1,0 +1,250 @@
+{
+  "slug": "gorealo-realtor-engaged",
+  "name": "GoRealo — Realtor engaged (next step + app)",
+  "description": "Subject: Saw the rates? Here's the next step for your buyers | Preheader: Instant prequals, cash-to-close estimates, co-branded sheets.",
+  "type": "email",
+  "builder": "mailpurse",
+  "html_content": "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Saw the rates? Here&#x27;s the next step for your buyers</title></head><body style=\"margin:0;background:#f1f4f8;font-family:Arial,Helvetica,sans-serif\"><div style=\"display:none;max-height:0;overflow:hidden;mso-hide:all\">Instant prequals, cash-to-close estimates, co-branded sheets — free realtor app.</div><table role=\"presentation\" width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"background:#f1f4f8\"><tr><td align=\"center\" style=\"padding:24px 12px\"><table role=\"presentation\" width=\"600\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" style=\"width:100%;max-width:600px;background:#fff\"><tr><td style=\"padding:24px 30px;border-top:5px solid #0BFF56\"><div style=\"margin-bottom:14px\"><p style=\"margin:0\"><a href=\"https://www.gorealo.com/\"><img src=\"https://app.gorealo.org/email-template-previews/gorealo/gorealo-logo.png\" alt=\"GoRealo\" width=\"154\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a></p><p style=\"margin:10px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p></div></td></tr><tr><td style=\"padding:30px;background:#f0f5ff\"><div style=\"margin-bottom:14px\"><p style=\"margin:0 0 12px;color:#003FDA;font-size:11px;font-weight:bold;letter-spacing:2px\">GLAD YOU SAW THE RATES</p></div><div style=\"margin-bottom:14px\"><h1 style=\"font-size:30px;line-height:1.25;margin:0 0 8px;color:#162849\">Here&rsquo;s the next step for your buyers.</h1></div><div style=\"margin-bottom:14px\"><p style=\"font-size:16px;line-height:1.7;color:#374151\">Hi {{first_name}},</p><p style=\"font-size:16px;line-height:1.7;color:#374151\">Thanks for taking a look at the rate sheet. Since you&rsquo;ve seen the numbers, here&rsquo;s how agents are putting them to work:</p><p style=\"font-size:15px;line-height:1.8;color:#374151\">&bull; <strong>Instant prequals</strong> for buyers right from the open house<br>&bull; <strong>Cash-to-close estimates</strong> you can text a client in under a minute<br>&bull; <strong>Co-branded rate sheets</strong> for your listings and farming</p></div></td></tr><tr><td style=\"padding:22px 30px;background:#ffffff\"><div style=\"margin-bottom:14px\"><h2 style=\"font-size:26px;line-height:1.25;margin:0 0 8px;color:#162849\">Put it on your phone</h2></div><div style=\"margin-bottom:14px\"><p style=\"font-size:15px;line-height:1.75;color:#374151\">The free realtor app gives you <strong>instant prequalifications</strong> with real rates and accurate closing costs &mdash; so when a buyer asks &ldquo;what would my payment be?&rdquo; you have the answer on the spot.</p></div><div style=\"margin-bottom:14px\"><table role=\"presentation\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin:18px 0\"><tr><td bgcolor=\"#003FDA\" style=\"border-radius:4px\"><a href=\"mailto:jim@gorealo.com?subject=Realtor%20app%20link\" style=\"display:inline-block;padding:14px 24px;color:#ffffff;text-decoration:none;font-size:15px;font-weight:bold\">Get the free realtor app link</a></td></tr></table></div></td></tr><tr><td style=\"padding:22px 30px;background:#ffffff\"><div style=\"margin-bottom:14px\"><p style=\"font-size:15px;line-height:1.75;color:#374151\">Just reply or text me if you&rsquo;d like the app link, a quick rate quote, or help with a specific buyer. Happy to make the process simple for you and your clients.</p><p style=\"font-size:15px;line-height:1.75;color:#162849;margin:22px 0 0\"><strong>Jim Hammond</strong><br>Senior Loan Originator | NMLS 190210<br>EquiFund Mortgage / GoRealo<br><a href=\"mailto:jim@gorealo.com\" style=\"color:#003FDA\">jim@gorealo.com</a><br><a href=\"https://www.gorealo.com\" style=\"color:#003FDA\">www.gorealo.com</a> | <a href=\"https://www.equifundmortgage.com\" style=\"color:#003FDA\">www.equifundmortgage.com</a></p></div></td></tr><tr><td style=\"padding:22px 30px;background:#f4f6f9\"><div style=\"margin-bottom:14px\"><p style=\"font-size:11px;line-height:1.7;color:#667085\">GoRealo&reg; is a DBA of Consumer Credit Services, LLC. NMLS #1070755 &middot; Florida Mortgage Broker License #MBR1434.<br>5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256.<br>Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply.</p><p style=\"font-size:11px;line-height:1.7;color:#667085\"><a href=\"https://www.gorealo.com/privacy-policy/\" style=\"color:#003FDA\">Privacy</a> &middot; <a href=\"{{unsubscribe_url}}\" style=\"color:#003FDA\">Unsubscribe</a></p></div></td></tr></table></td></tr></table></body></html>",
+  "plain_text_content": "Saw the rates? Here's the next step for your buyers Instant prequals, cash-to-close estimates, co-branded sheets — free realtor app.\n\n MORTGAGE OPTIONS, MADE CLEAR\n\n GLAD YOU SAW THE RATES\n\n Here’s the next step for your buyers.\n\n Hi {{first_name}},\n Thanks for taking a look at the rate sheet. Since you’ve seen the numbers, here’s how agents are putting them to work:\n • Instant prequals for buyers right from the open house\n• Cash-to-close estimates you can text a client in under a minute\n• Co-branded rate sheets for your listings and farming\n\n Put it on your phone\n\n The free realtor app gives you instant prequalifications with real rates and accurate closing costs — so when a buyer asks “what would my payment be?” you have the answer on the spot.\n\n Get the free realtor app link \n\n Just reply or text me if you’d like the app link, a quick rate quote, or help with a specific buyer. Happy to make the process simple for you and your clients.\n Jim Hammond \nSenior Loan Originator | NMLS 190210\nEquiFund Mortgage / GoRealo\n jim@gorealo.com \n www.gorealo.com | www.equifundmortgage.com \n\n GoRealo® is a DBA of Consumer Credit Services, LLC. NMLS #1070755 · Florida Mortgage Broker License #MBR1434.\n5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256.\nEqual Housing Opportunity. Credit, collateral, eligibility, and program terms apply.\n Privacy · Unsubscribe",
+  "builder_data": {
+    "builder": "mailpurse",
+    "version": 1,
+    "meta": {
+      "name": "GoRealo — Realtor engaged (next step + app)"
+    },
+    "style": {},
+    "customCss": "",
+    "sections": [
+      {
+        "id": "s-brand",
+        "name": "GoRealo brand",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-brand",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "w-brand",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"margin:0\"><a href=\"https://www.gorealo.com/\"><img src=\"https://app.gorealo.org/email-template-previews/gorealo/gorealo-logo.png\" alt=\"GoRealo\" width=\"154\" style=\"display:block;width:154px;max-width:100%;height:auto;border:0\"></a></p><p style=\"margin:10px 0 0;color:#667085;font-size:11px;letter-spacing:1.5px\">MORTGAGE OPTIONS, MADE CLEAR</p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-intro",
+        "name": "Engaged introduction",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#f0f5ff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-intro",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "w-eyebrow",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"margin:0 0 12px;color:#003FDA;font-size:11px;font-weight:bold;letter-spacing:2px\">GLAD YOU SAW THE RATES</p>",
+                  "align": "left"
+                }
+              },
+              {
+                "id": "h-main",
+                "type": "heading",
+                "name": "Heading",
+                "props": {
+                  "text": "Here&rsquo;s the next step for your buyers.",
+                  "level": 1,
+                  "align": "left",
+                  "color": "#162849",
+                  "fontSize": 22
+                }
+              },
+              {
+                "id": "w-body",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:16px;line-height:1.7;color:#374151\">Hi {{first_name}},</p><p style=\"font-size:16px;line-height:1.7;color:#374151\">Thanks for taking a look at the rate sheet. Since you&rsquo;ve seen the numbers, here&rsquo;s how agents are putting them to work:</p><p style=\"font-size:15px;line-height:1.8;color:#374151\">&bull; <strong>Instant prequals</strong> for buyers right from the open house<br>&bull; <strong>Cash-to-close estimates</strong> you can text a client in under a minute<br>&bull; <strong>Co-branded rate sheets</strong> for your listings and farming</p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-app",
+        "name": "Realtor app",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-app",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "h-app",
+                "type": "heading",
+                "name": "Heading",
+                "props": {
+                  "text": "Put it on your phone",
+                  "level": 2,
+                  "align": "left",
+                  "color": "#162849",
+                  "fontSize": 18
+                }
+              },
+              {
+                "id": "w-app-body",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:15px;line-height:1.75;color:#374151\">The free realtor app gives you <strong>instant prequalifications</strong> with real rates and accurate closing costs &mdash; so when a buyer asks &ldquo;what would my payment be?&rdquo; you have the answer on the spot.</p>",
+                  "align": "left"
+                }
+              },
+              {
+                "id": "cta-app",
+                "type": "button",
+                "name": "Primary CTA",
+                "props": {
+                  "text": "Get the free realtor app link",
+                  "url": "mailto:jim@gorealo.com?subject=Realtor%20app%20link",
+                  "align": "left",
+                  "backgroundColor": "#003FDA",
+                  "textColor": "#ffffff",
+                  "size": "md",
+                  "paddingX": 24,
+                  "paddingY": 14,
+                  "borderRadius": "4px"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-sign",
+        "name": "Signature",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#ffffff",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-sign",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "w-sign",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:15px;line-height:1.75;color:#374151\">Just reply or text me if you&rsquo;d like the app link, a quick rate quote, or help with a specific buyer. Happy to make the process simple for you and your clients.</p><p style=\"font-size:15px;line-height:1.75;color:#162849;margin:22px 0 0\"><strong>Jim Hammond</strong><br>Senior Loan Originator | NMLS 190210<br>EquiFund Mortgage / GoRealo<br><a href=\"mailto:jim@gorealo.com\" style=\"color:#003FDA\">jim@gorealo.com</a><br><a href=\"https://www.gorealo.com\" style=\"color:#003FDA\">www.gorealo.com</a> | <a href=\"https://www.equifundmortgage.com\" style=\"color:#003FDA\">www.equifundmortgage.com</a></p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "s-footer",
+        "name": "Compliance footer",
+        "style": {
+          "backgroundType": "color",
+          "backgroundColor": "#f4f6f9",
+          "paddingY": 22,
+          "gap": 12,
+          "maxWidthType": "full",
+          "innerMaxWidth": 536
+        },
+        "columns": [
+          {
+            "id": "c-footer",
+            "name": "Content",
+            "spans": {
+              "base": 12,
+              "md": 12,
+              "lg": 12
+            },
+            "widgets": [
+              {
+                "id": "w-footer",
+                "type": "rich_text",
+                "name": "Text",
+                "props": {
+                  "html": "<p style=\"font-size:11px;line-height:1.7;color:#667085\">GoRealo&reg; is a DBA of Consumer Credit Services, LLC. NMLS #1070755 &middot; Florida Mortgage Broker License #MBR1434.<br>5011 Gate Parkway Bldg 100, Suite 100, Jacksonville, FL 32256.<br>Equal Housing Opportunity. Credit, collateral, eligibility, and program terms apply.</p><p style=\"font-size:11px;line-height:1.7;color:#667085\"><a href=\"https://www.gorealo.com/privacy-policy/\" style=\"color:#003FDA\">Privacy</a> &middot; <a href=\"{{unsubscribe_url}}\" style=\"color:#003FDA\">Unsubscribe</a></p>",
+                  "align": "left"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "thumbnail": "/email-template-previews/gorealo/realtor-engaged.png",
+  "is_active": true,
+  "available_to_all_groups": true,
+  "settings": {
+    "source": "gorealo-campaign-pack",
+    "subject": "Saw the rates? Here's the next step for your buyers",
+    "preheader": "Instant prequals, cash-to-close estimates, co-branded sheets — free realtor app.",
+    "category": "Realtor outreach",
+    "primary_cta": "Get the free realtor app link",
+    "primary_url": "mailto:jim@gorealo.com"
+  }
+}
