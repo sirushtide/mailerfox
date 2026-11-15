@@ -1146,9 +1146,12 @@ class CampaignController extends Controller
         $failureRate = $campaign->sent_count > 0 ? round(($campaign->failed_count / $campaign->sent_count) * 100, 2) : 0;
         $deliveryRate = $campaign->sent_count > 0 ? round(($delivered / $campaign->sent_count) * 100, 2) : 0;
 
+        $notBot = fn ($q) => $q->whereNull('meta->bot')->orWhere('meta->bot', false);
+
         // Top clicked links with unique + total clicks + last clicked
         $topLinks = $campaign->logs()
             ->where('event', 'clicked')
+            ->where($notBot)
             ->whereNotNull('url')
             ->selectRaw('url, COUNT(*) as total_clicks, COUNT(DISTINCT recipient_id) as unique_clicks, MAX(created_at) as last_clicked_at')
             ->groupBy('url')
@@ -1157,7 +1160,7 @@ class CampaignController extends Controller
             ->get();
 
         // Total open events (all opens including repeat opens)
-        $totalOpenEvents = $campaign->logs()->where('event', 'opened')->count();
+        $totalOpenEvents = $campaign->logs()->where('event', 'opened')->where($notBot)->count();
 
         // Engagement heatmap: opens/clicks by day-of-week (0=Sun) and hour
         $isMysql = in_array(\DB::getDriverName(), ['mysql', 'mariadb']);
@@ -1174,6 +1177,7 @@ class CampaignController extends Controller
         }
         $heatmapRaw = $campaign->logs()
             ->whereIn('event', ['opened', 'clicked'])
+            ->where($notBot)
             ->selectRaw($heatSelect)
             ->groupByRaw($heatGroupBy)
             ->get();
@@ -1189,6 +1193,7 @@ class CampaignController extends Controller
         // Agent groups for device/client breakdown
         $agentGroups = $campaign->logs()
             ->whereIn('event', ['opened', 'clicked'])
+            ->where($notBot)
             ->whereNotNull('user_agent')
             ->selectRaw('user_agent, COUNT(*) as cnt')
             ->groupBy('user_agent')
@@ -1198,6 +1203,7 @@ class CampaignController extends Controller
         // Engagement trend - opens and clicks per day
         $engagementTrend = $campaign->logs()
             ->whereIn('event', ['opened', 'clicked'])
+            ->where($notBot)
             ->selectRaw('DATE(created_at) as date, event, COUNT(*) as count')
             ->groupByRaw('DATE(created_at), event')
             ->orderBy('date')
@@ -1239,6 +1245,7 @@ class CampaignController extends Controller
         // Live activity - most recent opens/clicks
         $liveActivity = $campaign->logs()
             ->whereIn('event', ['opened', 'clicked'])
+            ->where($notBot)
             ->with('recipient')
             ->latest()
             ->limit(6)
@@ -1851,6 +1858,7 @@ class CampaignController extends Controller
             'error_breakdown' => $errorBreakdown,
             'recent_events' => $campaign->logs()
                 ->with('recipient:id,email,first_name,last_name')
+                ->where(fn ($q) => $q->whereNull('meta->bot')->orWhere('meta->bot', false))
                 ->latest()
                 ->limit(20)
                 ->get(),
@@ -1999,6 +2007,7 @@ class CampaignController extends Controller
         // Top clicked links
         $topLinks = $campaign->logs()
             ->where('event', 'clicked')
+            ->where(fn ($q) => $q->whereNull('meta->bot')->orWhere('meta->bot', false))
             ->whereNotNull('url')
             ->selectRaw('url, COUNT(*) as clicks')
             ->groupBy('url')

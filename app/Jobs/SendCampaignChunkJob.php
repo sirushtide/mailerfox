@@ -263,6 +263,8 @@ class SendCampaignChunkJob implements ShouldQueue
         $gapMs = $speed->gapMs($this->campaign, $deliveryServer);
         $scheduleEnforced = $speed->scheduleEnforced();
         $processedSinceRefresh = 0;
+        $chunkStartedAt = microtime(true);
+        $chunkTimeBudget = max(60, $this->timeout - 60);
 
         if ($scheduleEnforced && ! $speed->isInsideSendingSchedule($this->campaign)) {
             Log::info("Campaign {$this->campaign->id} is outside its sending schedule. Deferring chunk.", [
@@ -273,6 +275,23 @@ class SendCampaignChunkJob implements ShouldQueue
         }
 
         foreach ($recipients as $recipient) {
+            // Hand off remaining recipients before the worker timeout kills
+            // this job mid-chunk — a timeout would mark them all as failed.
+            if (microtime(true) - $chunkStartedAt > $chunkTimeBudget) {
+                $remainingIds = CampaignRecipient::whereIn('id', $this->recipientIds)
+                    ->where('campaign_id', $this->campaign->id)
+                    ->where('status', 'pending')
+                    ->pluck('id')
+                    ->all();
+
+                if (! empty($remainingIds)) {
+                    self::dispatch($this->campaign, $remainingIds)->onQueue('campaigns');
+                    Log::info("Campaign {$this->campaign->id}: chunk nearing timeout; handed off " . count($remainingIds) . " recipients to a new chunk.");
+                }
+
+                break;
+            }
+
             if ($processedSinceRefresh === 0 || $processedSinceRefresh >= self::STATUS_REFRESH_EVERY) {
                 $this->campaign->refresh();
                 $processedSinceRefresh = 0;
@@ -1839,6 +1858,22 @@ class SendCampaignChunkJob implements ShouldQueue
     public function failed(\Throwable $exception): void
     {
         Log::error("SendCampaignChunkJob failed for campaign {$this->campaign->id}: ".$exception->getMessage());
+
+        // A worker timeout is not a send failure — hand still-pending
+        // recipients to a fresh chunk instead of permanently failing them.
+        if (stripos($exception->getMessage(), 'timed out') !== false) {
+            $pendingIds = CampaignRecipient::whereIn('id', $this->recipientIds)
+                ->where('status', 'pending')
+                ->pluck('id')
+                ->all();
+
+            if (! empty($pendingIds)) {
+                self::dispatch($this->campaign, $pendingIds)->onQueue('campaigns');
+                Log::info("Campaign {$this->campaign->id}: chunk timed out; re-dispatched " . count($pendingIds) . " pending recipients.");
+
+                return;
+            }
+        }
 
         // Mark recipients as failed
         CampaignRecipient::whereIn('id', $this->recipientIds)
